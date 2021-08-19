@@ -2,9 +2,10 @@ package main
 
 import (
 	"context"
-	"github.com/go-chi/chi"
 	"io"
 	"net/http"
+
+	"github.com/go-chi/chi"
 )
 
 type postsResource struct{}
@@ -16,15 +17,17 @@ func (rs postsResource) Routes() chi.Router {
 	// POST /posts - Create a new post
 	r.Post("/", rs.Create)
 	//
-	r.Route("/{id}", func(r chi.Router) {
-		r.Use(PostCtx)
-		// GET single post by :id
-		r.Get("/", rs.Get)
-		// Update a single post by :id
-		r.Put("/", rs.Update)
-		// Delete a single post by :id
-		r.Delete("/", rs.Delete)
-	})
+	r.Route(
+		"/{id}", func(r chi.Router) {
+			r.Use(PostCtx)
+			// GET single post by :id
+			r.Get("/", rs.Get)
+			// Update a single post by :id
+			r.Put("/", rs.Update)
+			// Delete a single post by :id
+			r.Delete("/", rs.Delete)
+		},
+	)
 	return r
 }
 
@@ -34,7 +37,8 @@ func (rs postsResource) List(writer http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		http.Error(
-			writer, err.Error(), http.StatusInternalServerError)
+			writer, err.Error(), http.StatusInternalServerError,
+		)
 		return
 	}
 
@@ -50,8 +54,10 @@ func (rs postsResource) List(writer http.ResponseWriter, r *http.Request) {
 
 // Request Handler for POST /posts
 func (rs postsResource) Create(writer http.ResponseWriter, r *http.Request) {
-	resp, err := http.Post("https://jsonplaceholder.typicode.com/posts",
-		"application/json", r.Body)
+	resp, err := http.Post(
+		"https://jsonplaceholder.typicode.com/posts",
+		"application/json", r.Body,
+	)
 
 	if err != nil {
 		http.Error(writer, err.Error(), http.StatusInternalServerError)
@@ -70,36 +76,44 @@ func (rs postsResource) Create(writer http.ResponseWriter, r *http.Request) {
 
 // Middleware function that checks for the post :id in the URL parameters
 func PostCtx(
-	next http.Handler) http.Handler {
+	next http.Handler,
+) http.Handler {
 	return http.HandlerFunc(
 		func(
 			w http.ResponseWriter,
-			r *http.Request) {
+			r *http.Request,
+		) {
 			ctx := context.WithValue(
 				r.Context(),
-				"id", chi.URLParam(r, "id"))
+				"id", chi.URLParam(r, "id"),
+			)
 			next.ServeHTTP(
-				w, r.WithContext(ctx))
-		})
+				w, r.WithContext(ctx),
+			)
+		},
+	)
 }
 
 // Request Handler for GET /posts/{id}
 func (
 	rs postsResource) Get(
 	w http.ResponseWriter,
-	r *http.Request) {
+	r *http.Request,
+) {
 	id := r.Context().Value("id").(string)
 
 	// Fetch post by id
 	resp,
 		err := http.Get(
 		"https://jsonplaceholder.typicode.com/posts/" +
-			id)
+			id,
+	)
 
 	if err != nil {
 		http.Error(
 			w, err.Error(),
-			http.StatusInternalServerError)
+			http.StatusInternalServerError,
+		)
 		return
 	}
 
@@ -107,12 +121,16 @@ func (
 
 	w.Header().Set(
 		"Content-Type",
-		"application/json")
+		"application/json",
+	)
 
 	if _, err := io.Copy(
-		w, resp.Body); err != nil {
-		http.Error(w, err.Error(),
-			http.StatusInternalServerError)
+		w, resp.Body,
+	); err != nil {
+		http.Error(
+			w, err.Error(),
+			http.StatusInternalServerError,
+		)
 		return
 	}
 }
@@ -121,22 +139,26 @@ func (
 func (
 	rs postsResource) Update(
 	w http.ResponseWriter,
-	r *http.Request) {
+	r *http.Request,
+) {
 	id := r.Context().Value("id").(string)
 	client := &http.Client{}
 
 	req, err := http.NewRequest(
 		"PUT",
 		"https://jsonplaceholder.typicode.com/posts/"+
-			id, r.Body)
+			id, r.Body,
+	)
 	req.Header.Add(
-		"Content-Type", "application/json")
+		"Content-Type", "application/json",
+	)
 
 	if err != nil {
 		http.Error(
 			w,
 			err.Error(),
-			http.StatusInternalServerError)
+			http.StatusInternalServerError,
+		)
 		return
 	}
 
@@ -146,22 +168,26 @@ func (
 		http.Error(
 			w,
 			err.Error(),
-			http.StatusInternalServerError)
+			http.StatusInternalServerError,
+		)
 		return
 	}
 
 	defer resp.Body.Close()
 
 	w.Header().Set(
-		"Content-Type", "application/json")
+		"Content-Type", "application/json",
+	)
 
 	if _, err := io.Copy(
 		w,
-		resp.Body); err != nil {
+		resp.Body,
+	); err != nil {
 		http.Error(
 			w,
 			err.Error(),
-			http.StatusInternalServerError)
+			http.StatusInternalServerError,
+		)
 		return
 	}
 }
@@ -171,20 +197,23 @@ func (
 func (
 	rs postsResource) Delete(
 	w http.ResponseWriter,
-	r *http.Request) {
+	r *http.Request,
+) {
 	id := r.Context().Value("id").(string)
 	client := &http.Client{}
 
 	req, err := http.NewRequest(
 		"DELETE",
 		"https://jsonplaceholder.typicode.com/posts/"+
-			id, nil)
+			id, nil,
+	)
 
 	if err != nil {
 		http.Error(
 			w,
 			err.Error(),
-			http.StatusInternalServerError)
+			http.StatusInternalServerError,
+		)
 		return
 	}
 
@@ -194,7 +223,8 @@ func (
 		http.Error(
 			w,
 			err.Error(),
-			http.StatusInternalServerError)
+			http.StatusInternalServerError,
+		)
 		return
 	}
 
@@ -202,14 +232,17 @@ func (
 
 	w.Header().Set(
 		"Content-Type",
-		"application/json")
+		"application/json",
+	)
 
 	if _, err := io.Copy(
-		w, resp.Body); err != nil {
+		w, resp.Body,
+	); err != nil {
 		http.Error(
 			w,
 			err.Error(),
-			http.StatusInternalServerError)
+			http.StatusInternalServerError,
+		)
 		return
 	}
 }
