@@ -8,6 +8,7 @@ func main() {
 	issues2()
 	fmt.Println("======================================")
 	issues3()
-
+	fmt.Println("======================================")
+	testleekchanaccounting()
 }
 
