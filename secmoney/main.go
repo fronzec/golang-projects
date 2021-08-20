@@ -10,5 +10,7 @@ func main() {
 	issues3()
 	fmt.Println("======================================")
 	testleekchanaccounting()
+	fmt.Println("======================================")
+	testDecimal()
 }
 
