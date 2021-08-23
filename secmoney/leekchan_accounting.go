@@ -19,7 +19,7 @@ func testleekchanaccounting() {
 	//fmt.Println(ac.FormatMoneyDecimal(decimal.New(123456789.213123, 0))) // "$123,456,789.21"
 
 	ac = accounting.Accounting{Symbol: "€", Precision: 2, Thousand: ".", Decimal: ","}
-	fmt.Println(ac.FormatMoney(4999.99))  // "€4.999,99"
+	fmt.Println(ac.FormatMoney(4999.99)) // "€4.999,99"
 
 	fmt.Println(ac.FormatMoney(500000)) // "$500,000.00"
 
