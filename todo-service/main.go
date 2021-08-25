@@ -35,7 +35,8 @@ func main() {
 		12345,
 	)
 	printErr(badFieldErr)
-	fmt.Printf("%v", errors.Is(configErr, configErr2))
+	fmt.Printf("%v\n", errors.Is(configErr, configErr2))
+	fmt.Printf("%v\n", errors.As(badFieldErr, &badConfig))
 }
 
 func printErr(theError error) {
