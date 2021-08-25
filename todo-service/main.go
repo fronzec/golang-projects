@@ -10,17 +10,19 @@ import (
 
 func main() {
 	configErr := app.NewBadConfigErr(myerrors.BaseError{
-		Message: "db connection missing",
-		Code:    0,
+		Message: "db connection missing for db A",
+		Code:    1,
 	})
 
 	configErr2 := app.NewBadConfigErr(myerrors.BaseError{
-		Message: "db connection missing",
-		Code:    0,
+		Message: "db connection missing for db B",
+		Code:    1,
 	})
 	var badConfig *app.BadConfigErr
-	fmt.Printf("%v \n", errors.As(configErr, &badConfig))
-	fmt.Printf("%v \n", errors.Is(configErr, configErr2))
+	// As is type assertion
+	fmt.Printf("As = %v \n", errors.As(configErr, &badConfig))
+	// Is compares against value, we need to implement method is for our err
+	fmt.Printf("Is = %v \n", errors.Is(configErr, configErr2))
 	printErr(configErr)
 	printErr(configErr2)
 
