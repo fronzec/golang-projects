@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+
 	"todo-service/errors"
 	"todo-service/errors/app"
 	"todo-service/errors/bussines"
@@ -28,7 +29,7 @@ func main() {
 
 	badFieldErr := bussines.NewBadFieldForEntity(
 		myerrors.BaseError{
-			Err: configErr,
+			Err:     configErr,
 			Message: "bad field value limitField",
 			Code:    1000,
 		}, "user",
