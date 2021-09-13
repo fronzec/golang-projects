@@ -40,6 +40,25 @@ func TestNewPropertiesConfigProvider(t *testing.T) {
 				return nil
 			},
 		},
+		{
+			"when read fail by file not found",
+			nil,
+			true,
+			func() error {
+				err := os.Setenv("PROPERTIES_FILE", "./badpath/app.properties")
+				if err != nil {
+					return err
+				}
+				return nil
+			},
+			func() error {
+				err := os.Unsetenv("PROPERTIES_FILE")
+				if err != nil {
+					return err
+				}
+				return nil
+			},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(
