@@ -48,10 +48,10 @@ func (provider *PropertiesConfigProvider) GetFloat(key string) (float64, error) 
 
 func (provider *PropertiesConfigProvider) loadConfig() error {
 	configs := map[string]interface{}{}
-	fileName, ok := os.LookupEnv("PROPERTIES_FILENAME")
+	fileName, ok := os.LookupEnv("PROPERTIES_FILE")
 	if !ok {
-		fmt.Printf("cannot read PROPERTIES_FILENAME environment, default will be used\n")
-		fileName = "./config/example/app.properties"
+		fmt.Printf("cannot read PROPERTIES_FILE environment, default will be used\n")
+		fileName = "./config/latest/app.properties"
 	}
 	fmt.Printf("reading properfies file:%v\n", fileName)
 	open, err2 := os.Open(fileName)
