@@ -11,7 +11,16 @@ func TestNewPropertiesConfigProvider(t *testing.T) {
 		want    Provider
 		wantErr bool
 	}{
-		// TODO: Add test cases.
+		{"read successfully with all configs", &PropertiesConfigProvider{
+			Configs{
+				configs: map[string]interface{}{
+					"db.url":      "",
+					"db.name":     "",
+					"db.username": "",
+					"db.password": "",
+				},
+			},
+		}, false},
 	}
 	for _, tt := range tests {
 		t.Run(

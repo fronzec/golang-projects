@@ -12,14 +12,6 @@ type PropertiesConfigProvider struct {
 	Configs
 }
 
-func (provider *PropertiesConfigProvider) logConfigs() {
-	fmt.Printf("=================================================\n")
-	for key, value := range provider.configs {
-		fmt.Printf("config: <%v=%v>\n", key, value)
-	}
-	fmt.Printf("=================================================\n")
-}
-
 func NewPropertiesConfigProvider() (Provider, error) {
 	provider := PropertiesConfigProvider{}
 	err := provider.loadConfig()
@@ -88,4 +80,12 @@ func (provider *PropertiesConfigProvider) loadConfig() error {
 	}
 	provider.configs = configs
 	return nil
+}
+
+func (provider *PropertiesConfigProvider) logConfigs() {
+	fmt.Printf("=================================================\n")
+	for key, value := range provider.configs {
+		fmt.Printf("config: <%v=%v>\n", key, value)
+	}
+	fmt.Printf("=================================================\n")
 }
