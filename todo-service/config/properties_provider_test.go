@@ -1,11 +1,16 @@
 package config
 
 import (
+	"os"
 	"reflect"
 	"testing"
 )
 
 func TestNewPropertiesConfigProvider(t *testing.T) {
+	err := os.Setenv("PROPERTIES_FILE", "./example/app.properties")
+	if err != nil {
+		return
+	}
 	tests := []struct {
 		name    string
 		want    Provider
