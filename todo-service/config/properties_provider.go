@@ -4,7 +4,7 @@ type PropertiesConfigProvider struct {
 	configs map[string]interface{}
 }
 
-func NewPropertiesConfigProvider() (*PropertiesConfigProvider,error) {
+func NewPropertiesConfigProvider() (Provider,error) {
 	provider := PropertiesConfigProvider{}
 	err := provider.loadConfig()
 	if err != nil {
