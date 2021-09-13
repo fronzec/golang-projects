@@ -7,29 +7,46 @@ import (
 )
 
 func TestNewPropertiesConfigProvider(t *testing.T) {
-	err := os.Setenv("PROPERTIES_FILE", "./example/app.properties")
-	if err != nil {
-		return
-	}
 	tests := []struct {
 		name    string
 		want    Provider
 		wantErr bool
+		before  func() error
+		after   func() error
 	}{
-		{"read successfully with all configs", &PropertiesConfigProvider{
-			Configs{
-				configs: map[string]interface{}{
-					"db.url":      "",
-					"db.name":     "",
-					"db.username": "",
-					"db.password": "",
+		{
+			"read successfully with all configs", &PropertiesConfigProvider{
+				Configs{
+					configs: map[string]interface{}{
+						"db.url":      "",
+						"db.name":     "",
+						"db.username": "",
+						"db.password": "",
+					},
 				},
+			}, false,
+			func() error {
+				err := os.Setenv("PROPERTIES_FILE", "./example/app.properties")
+				if err != nil {
+					return err
+				}
+				return nil
 			},
-		}, false},
+			func() error {
+				err := os.Unsetenv("PROPERTIES_FILE")
+				if err != nil {
+					return err
+				}
+				return nil
+			},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(
 			tt.name, func(t *testing.T) {
+				if beforeErr := tt.before(); beforeErr != nil {
+					t.Errorf("cannot execute before method successfully, err=%v", beforeErr)
+				}
 				got, err := NewPropertiesConfigProvider()
 				if (err != nil) != tt.wantErr {
 					t.Errorf("NewPropertiesConfigProvider() error = %v, wantErr %v", err, tt.wantErr)
@@ -37,6 +54,9 @@ func TestNewPropertiesConfigProvider(t *testing.T) {
 				}
 				if !reflect.DeepEqual(got, tt.want) {
 					t.Errorf("NewPropertiesConfigProvider() got = %v, want %v", got, tt.want)
+				}
+				if afterErr := tt.after(); afterErr != nil {
+					t.Errorf("cannot execute after method successfully err=%v", afterErr)
 				}
 			},
 		)
