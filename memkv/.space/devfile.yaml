@@ -1,0 +1,15 @@
+# For more details see https://www.jetbrains.com/help/space/set-up-a-dev-evnvironment.html
+schemaVersion: 2.2.0
+metadata:
+  name: 'My custom config'
+attributes:
+  space:
+    # regular, large, xlarge
+    instanceType: large
+    editor:
+      # (Required) IDE type: Idea, WebStorm, PyCharm,
+      # RubyMine, CLion, Fleet, GoLand, PhpStorm, Rider
+      type: GoLand
+      version: '2022.1'
+      # release state, e.g. Release or EAP
+      updateChannel: Release
