@@ -1,6 +1,7 @@
 package main
 
 import (
+	"batch-service/job1"
 	"context"
 	"database/sql"
 	"fmt"
@@ -44,6 +45,26 @@ func (r *myWriter) Write(items []interface{}, chunkCtx *gobatch.ChunkContext) go
 }
 
 func main() {
+	//gobatchExamples()
+	myGoBatchTesting()
+}
+
+func myGoBatchTesting() {
+	//set db for gobatch to store job&step execution context
+	db, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/gobatchservicedb?charset=utf8&parseTime=true")
+	if err != nil {
+		panic(err)
+	}
+	gobatch.SetDB(db)
+	job1instance := job1.BuildJob1(100)
+
+	//register job to gobatch
+	gobatch.Register(job1instance)
+	//NOTE 25/02/2023 : we need to increase the params on each execution call, if we call an already executed job is skipped
+	gobatch.Start(context.Background(), job1instance.Name(), "{\"execAttempt\":\"9\"}")
+}
+
+func gobatchExamples() {
 	fmt.Println("hello batch")
 	//set db for gobatch to store job&step execution context
 	db, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/gobatchservicedb?charset=utf8&parseTime=true")
