@@ -1,0 +1,11 @@
+# Task reference usage https://taskfile.dev/usage/
+---
+version: '3'
+silent: true
+tasks:
+  hello:
+    cmds:
+      - echo "Task works ok!!!"
+  podmancompose-up:
+    cmds:
+      - podman-compose -p batch-service -f _devenvironment/docker-compose.yml up -d
