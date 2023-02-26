@@ -3,10 +3,10 @@ package step1
 import "github.com/chararch/gobatch/file"
 
 type Person struct {
-	FirstName  string `order:"0"`
-	LastName   string `order:"1"`
-	Email      string `order:"2"`
-	Profession string `order:"3"`
+	FirstName  string `order:"0" ,db:"first_name"`
+	LastName   string `order:"1" ,db:"last_name"`
+	Email      string `order:"2" ,db:"email"`
+	Profession string `order:"3" ,db:"profession"`
 }
 
 var CsvFile = file.FileObjectModel{

@@ -61,7 +61,7 @@ func myGoBatchTesting() {
 	//register job to gobatch
 	gobatch.Register(job1instance)
 	//NOTE 25/02/2023 : we need to increase the params on each execution call, if we call an already executed job is skipped
-	gobatch.Start(context.Background(), job1instance.Name(), "{\"execAttempt\":\"9\"}")
+	gobatch.Start(context.Background(), job1instance.Name(), "{\"execAttempt\":\"11\"}")
 }
 
 func gobatchExamples() {
