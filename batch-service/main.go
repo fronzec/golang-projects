@@ -1,11 +1,13 @@
 package main
 
 import (
+	db2 "batch-service/db"
 	"batch-service/job1"
 	"context"
 	"database/sql"
 	"fmt"
 	"github.com/chararch/gobatch"
+	"github.com/jmoiron/sqlx"
 )
 import _ "github.com/go-sql-driver/mysql"
 
@@ -56,7 +58,16 @@ func myGoBatchTesting() {
 		panic(err)
 	}
 	gobatch.SetDB(db)
-	job1instance := job1.BuildJob1(100)
+
+	connection := db2.NewConnection()
+	defer func(connection *sqlx.DB) {
+		err := db2.CloseConnection(connection)
+		if err != nil {
+			println(err.Error())
+		}
+	}(connection)
+
+	job1instance := job1.BuildJob1(100, connection)
 
 	//register job to gobatch
 	gobatch.Register(job1instance)
