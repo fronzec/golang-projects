@@ -1,0 +1,57 @@
+openapi: 3.0.0
+info:
+  title: API Specification
+  description: A basic API specification with /ping and /weather endpoints.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /ping:
+    get:
+      summary: Ping the server
+      description: Returns an empty JSON object to check if the server is running.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+  /weather:
+    get:
+      summary: Get weather information
+      description: Fetches weather information based on the provided address.
+      parameters:
+        - name: address
+          in: query
+          required: true
+          description: The address for which weather information should be fetched.
+          schema:
+            type: string
+            example: "123 Main St, City, Country"
+      responses:
+        '200':
+          description: Weather response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    type: string
+                    example: "123 Main St, City, Country"
+                  temperature:
+                    type: number
+                    example: 25.5
+                  humidity:
+                    type: number
+                    example: 60
+                  condition:
+                    type: string
+                    example: "Partly cloudy"
+              example:
+                location: "123 Main St, City, Country"
+                temperature: 25.5
+                humidity: 60
+                condition: "Partly cloudy"
