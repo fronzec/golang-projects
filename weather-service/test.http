@@ -1,0 +1,5 @@
+### Ping server
+GET http://localhost:8080/ping
+
+### Get weather by address
+GET http://localhost:8080/weather?address=some adrress
