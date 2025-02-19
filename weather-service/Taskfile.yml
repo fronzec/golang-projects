@@ -1,0 +1,8 @@
+version: '3'
+tasks:
+  test:
+    cmds:
+      - echo "Task works"
+  air:
+    cmds:
+      - air server --port 808
