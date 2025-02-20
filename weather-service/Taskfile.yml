@@ -27,4 +27,4 @@ tasks:
       - podman-compose --file ./_devenv/docker-compose.yml --project-name weather-service stop
   air:
     cmds:
-      - air server --port 808
+      - air
