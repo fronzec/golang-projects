@@ -1,0 +1,30 @@
+---
+version: '3'
+silent: true
+tasks:
+  hello:
+    cmds:
+      - echo "Task works ok!!!"
+  setupenv:
+    cmds:
+      - f ./.env && echo "==========> .env file already exists, their values will be used" || cp env.example .env
+  podmanup:
+    cmds:
+      - podman-compose --file docker-compose.yml up -d
+  # remove pods but not orphans or volumes
+  podmandown:
+    cmds:
+      - podman-compose --file docker-compose.yml down
+  # removes all
+  podmandownfull:
+    cmds:
+      - podman-compose --file docker-compose.yml down --remove-orphans --volumes
+  podmanstart:
+    cmds:
+      - podman-compose --file docker-compose.yml start
+  podmanstop:
+    cmds:
+      - podman-compose --file docker-compose.yml stop
+  air:
+    cmds:
+      - air server --port 808
