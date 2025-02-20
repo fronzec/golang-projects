@@ -3,7 +3,14 @@ package handlers
 import (
 	"encoding/json"
 	"net/http"
+	"weather-service/weather"
 )
+
+var weatherService *weather.WeatherService
+
+func InitWeatherHandler(ws *weather.WeatherService) {
+	weatherService = ws
+}
 
 // WeatherHandler handles the /weather endpoint
 func WeatherHandler(w http.ResponseWriter, r *http.Request) {
@@ -14,17 +21,16 @@ func WeatherHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Hardcoded response example as specified in the API_Specification_v1.yml
-	response := map[string]interface{}{
-		"location":    address, // Use the provided address in the response
-		"temperature": 25.5,
-		"humidity":    60,
-		"condition":   "Partly cloudy",
+	// Get weather information
+	weatherInfo, err := weatherService.GetWeather(address)
+	if err != nil {
+		http.Error(w, "Failed to get weather information", http.StatusInternalServerError)
+		return
 	}
 
 	// Set Content-Type header and write response
 	w.Header().Set("Content-Type", "application/json")
-	if err := json.NewEncoder(w).Encode(response); err != nil {
+	if err := json.NewEncoder(w).Encode(weatherInfo); err != nil {
 		http.Error(w, "Failed to encode response", http.StatusInternalServerError)
 	}
 }
