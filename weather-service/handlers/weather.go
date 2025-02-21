@@ -6,9 +6,9 @@ import (
 	"weather-service/weather"
 )
 
-var weatherService *weather.WeatherService
+var weatherService *weather.Service
 
-func InitWeatherHandler(ws *weather.WeatherService) {
+func InitWeatherHandler(ws *weather.Service) {
 	weatherService = ws
 }
 
