@@ -3,19 +3,18 @@ package main
 import (
 	"log"
 	"net/http"
-	"os"
 	"weather-service/cache"
+	"weather-service/config"
 	"weather-service/handlers"
 	"weather-service/redisclient"
 	"weather-service/weather"
 )
 
 func main() {
-	// Load environment variables
-	redisAddr := os.Getenv("REDIS_ADDR")
-	if redisAddr == "" {
-		log.Fatal("REDIS_ADDR environment variable is required")
-	}
+	// Initialize config, Load environment variables
+	cfg := config.NewConfig()
+
+	redisAddr := cfg.Get("REDIS_ADDR")
 
 	// Initialize Redis client
 	client, err := redisclient.NewRedisClient(redisAddr)
