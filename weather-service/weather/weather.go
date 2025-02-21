@@ -2,9 +2,12 @@ package weather
 
 import (
 	"context"
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"fmt"
+	"math/rand"
 	"net/http"
 	"time"
 	"weather-service/cache"
@@ -21,11 +24,17 @@ func NewWeatherService(cacheClient cache.CacheClient, apiKey string) *Service {
 	return &Service{cacheClient: cacheClient, apiKey: apiKey}
 }
 
+func generateCacheKey(address string) string {
+	hash := sha256.Sum256([]byte(address))
+	return fmt.Sprintf("weather:%s", hex.EncodeToString(hash[:]))
+}
+
 func (ws *Service) GetWeather(address string) (map[string]interface{}, error) {
 	ctx := context.Background()
+	cacheKey := generateCacheKey(address)
 
 	// Try to get weather information from cache
-	val, err := ws.cacheClient.Get(ctx, address)
+	val, err := ws.cacheClient.Get(ctx, cacheKey)
 	if errors.Is(err, redis.Nil) {
 		// Address not found in cache, make an HTTP call to get weather information
 		weatherInfo, err := ws.fetchWeatherFromAPI(address)
@@ -33,9 +42,10 @@ func (ws *Service) GetWeather(address string) (map[string]interface{}, error) {
 			return nil, err
 		}
 
-		// Store the weather information in cache
+		// Store the weather information in cache with a random expiration time between 5 and 15 minutes
 		weatherJSON, _ := json.Marshal(weatherInfo)
-		ws.cacheClient.Set(ctx, address, string(weatherJSON), 10*time.Minute)
+		expiration := time.Duration(5+rand.Intn(11)) * time.Minute
+		ws.cacheClient.Set(ctx, cacheKey, string(weatherJSON), expiration)
 
 		return weatherInfo, nil
 	} else if err != nil {
