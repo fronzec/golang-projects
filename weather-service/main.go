@@ -12,9 +12,8 @@ import (
 
 func main() {
 	cfg := config.NewConfig()
-	redisAddr := cfg.Get("REDIS_ADDR")
 
-	client, err := redisclient.NewRedisClient(redisAddr)
+	client, err := redisclient.NewRedisClient(cfg)
 	if err != nil {
 		log.Fatalf("Failed to connect to Redis: %v", err)
 	}

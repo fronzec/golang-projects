@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -38,7 +39,6 @@ func NewConfig() *Config {
 		log.Fatalf("Error reading config.properties file: %v", err)
 	}
 
-	// Check for required environment variables
 	for _, key := range requiredEnvVars {
 		if _, exists := envVars[key]; !exists {
 			log.Fatalf("Required environment variable %s is missing", key)
@@ -55,4 +55,9 @@ func (c *Config) Get(key string) string {
 func (c *Config) Exists(key string) bool {
 	_, exists := c.envVars[key]
 	return exists
+}
+
+func (c *Config) GetInt(key string) int {
+	value, _ := strconv.Atoi(c.envVars[key])
+	return value
 }
