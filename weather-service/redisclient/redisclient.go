@@ -12,7 +12,6 @@ func NewRedisClient(addr string) (*redis.Client, error) {
 	}
 	client := redis.NewClient(options)
 
-	// Test the connection
 	ctx := context.Background()
 	if err := client.Ping(ctx).Err(); err != nil {
 		return nil, err

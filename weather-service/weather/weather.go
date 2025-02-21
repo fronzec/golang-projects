@@ -6,7 +6,7 @@ import (
 	"time"
 	"weather-service/cache"
 
-	"github.com/redis/go-redis/v9" // Correct import for redis.Nil
+	"github.com/redis/go-redis/v9"
 )
 
 type WeatherService struct {
