@@ -33,3 +33,4 @@ dep/
 .DS_Store
 Thumbs.db
 /tmp/
+/http-client.private.env.json
