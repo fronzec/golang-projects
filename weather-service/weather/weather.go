@@ -3,6 +3,7 @@ package weather
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"time"
 	"weather-service/cache"
 
@@ -22,7 +23,7 @@ func (ws *WeatherService) GetWeather(address string) (map[string]interface{}, er
 
 	// Try to get weather information from cache
 	val, err := ws.cacheClient.Get(ctx, address)
-	if err == redis.Nil {
+	if errors.Is(err, redis.Nil) {
 		// Address not found in cache, make an HTTP call to get weather information
 		weatherInfo, err := fetchWeatherFromAPI(address)
 		if err != nil {
