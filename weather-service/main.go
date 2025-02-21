@@ -20,7 +20,7 @@ func main() {
 	defer client.Close()
 
 	cacheClient := cache.NewRedisCacheClient(client)
-	weatherService := weather.NewWeatherService(cacheClient)
+	weatherService := weather.NewWeatherService(cacheClient, cfg.Get("SECRET_VISUAL_CROSSING"))
 	handlers.InitWeatherHandler(weatherService)
 
 	mux := http.NewServeMux()
