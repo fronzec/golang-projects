@@ -1,0 +1,36 @@
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Output of build tools
+bin/
+dist/
+
+# Go test binaries
+*.test
+
+# Vendor directory (optional if using Go modules)
+vendor/
+
+# IDE-specific files
+.idea/
+.vscode/
+*.iml
+
+# Logs
+*.log
+
+# Dependency directories (optional if not using Go modules)
+Godeps/
+dep/
+
+# Go-specific files
+*.tmp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+/tmp/
+/http-client.private.env.json
