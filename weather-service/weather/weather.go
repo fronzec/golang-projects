@@ -7,12 +7,14 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"math/rand"
 	"net/http"
 	"time"
 	"weather-service/cache"
 
 	"github.com/redis/go-redis/v9"
+	"github.com/rs/zerolog/log"
 )
 
 type Service struct {
@@ -66,16 +68,30 @@ func (ws *Service) fetchWeatherFromAPI(address string) (map[string]interface{}, 
 
 	resp, err := http.Get(url)
 	if err != nil {
+		log.Error().
+			Err(err).
+			Str("address", address).
+			Msg("Error fetching weather data")
 		return nil, err
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
+		body, _ := io.ReadAll(resp.Body)
+		log.Error().
+			Int("status", resp.StatusCode).
+			Str("response", string(body)).
+			Str("address", address).
+			Msg("Weather API error")
 		return nil, fmt.Errorf("failed to fetch weather data: %s", resp.Status)
 	}
 
 	var weatherInfo map[string]interface{}
 	if err := json.NewDecoder(resp.Body).Decode(&weatherInfo); err != nil {
+		log.Error().
+			Err(err).
+			Str("address", address).
+			Msg("Error decoding weather response")
 		return nil, err
 	}
 
