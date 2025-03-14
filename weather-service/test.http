@@ -5,7 +5,11 @@ GET http://localhost:8080/ping
 GET http://localhost:8080/weather?address=cuajimalpa ciudad de méxico
 
 
-### Get weather by address
+### Get weather by not found address
+GET http://localhost:8080/weather?address= a unknown place in mars
+
+
+### Get weather by address 400 bad request
 GET http://localhost:8080/weather
 
 ### GET weather by address from 3th party API
