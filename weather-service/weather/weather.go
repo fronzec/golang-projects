@@ -10,6 +10,7 @@ import (
 	"io"
 	"math/rand"
 	"net/http"
+	"os"
 	"time"
 	"weather-service/cache"
 
@@ -22,7 +23,8 @@ type Service struct {
 	apiKey      string
 }
 
-func NewWeatherService(cacheClient cache.CacheClient, apiKey string) *Service {
+func NewWeatherService(cacheClient cache.CacheClient, envApiKey string) *Service {
+	apiKey := os.Getenv(envApiKey)
 	return &Service{cacheClient: cacheClient, apiKey: apiKey}
 }
 

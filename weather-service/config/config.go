@@ -12,7 +12,7 @@ type Config struct {
 	envVars map[string]string
 }
 
-var requiredEnvVars = []string{"REDIS_ADDR"}
+var requiredEnvVars = []string{"ENV_REDIS_ADDR", "ENV_VISUAL_CROSSING_API_KEY"}
 
 func NewConfig() *Config {
 	envVars := make(map[string]string)
