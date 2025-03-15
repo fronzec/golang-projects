@@ -13,6 +13,7 @@ import (
 	"os"
 	"time"
 	"weather-service/cache"
+	"weather-service/types"
 
 	"github.com/redis/go-redis/v9"
 	"github.com/rs/zerolog/log"
@@ -67,14 +68,16 @@ func (ws *Service) GetWeather(address string) (map[string]interface{}, error) {
 
 func (ws *Service) fetchWeatherFromAPI(address string) (map[string]interface{}, error) {
 	url := fmt.Sprintf("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/%s?unitGroup=us&include=days&key=%s&contentType=json", address, ws.apiKey)
-
 	resp, err := http.Get(url)
 	if err != nil {
 		log.Error().
 			Err(err).
 			Str("address", address).
 			Msg("Error fetching weather data")
-		return nil, err
+		return nil, &types.ErrorResponse{
+			Message:  "Unable to fetch weather information",
+			HTTPCode: http.StatusInternalServerError,
+		}
 	}
 	defer resp.Body.Close()
 
@@ -85,7 +88,16 @@ func (ws *Service) fetchWeatherFromAPI(address string) (map[string]interface{}, 
 			Str("response", string(body)).
 			Str("address", address).
 			Msg("Weather API error")
-		return nil, fmt.Errorf("failed to fetch weather data: %s", resp.Status)
+
+		statusCode := http.StatusInternalServerError
+		if resp.StatusCode == http.StatusNotFound || resp.StatusCode == http.StatusBadRequest {
+			statusCode = http.StatusNotFound
+		}
+
+		return nil, &types.ErrorResponse{
+			Message:  "Weather information not available",
+			HTTPCode: statusCode,
+		}
 	}
 
 	var weatherInfo map[string]interface{}
@@ -94,7 +106,10 @@ func (ws *Service) fetchWeatherFromAPI(address string) (map[string]interface{}, 
 			Err(err).
 			Str("address", address).
 			Msg("Error decoding weather response")
-		return nil, err
+		return nil, &types.ErrorResponse{
+			Message:  "Unable to process weather information",
+			HTTPCode: http.StatusInternalServerError,
+		}
 	}
 
 	return weatherInfo, nil
