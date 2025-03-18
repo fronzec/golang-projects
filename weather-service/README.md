@@ -40,7 +40,16 @@ docker compose --file ./_devenv/docker-compose.yml --project-name weather-servic
 5. You can test the API using the rest client file `api_test.http`
 
 Image of running the application
+
 ![Running the application](./_devenv/img/run.png)
 
 Image of testing the API
+
 ![Testing the API](./_devenv/img/test1.png)
+
+
+### API Specification
+
+The API specification is available in [API Specification v1](./API_Specification_v1.yml)
+
+Also you can check an example of the response in [Example Response](./_devenv/example-response.json)
