@@ -2,10 +2,10 @@
 GET http://localhost:8080/ping
 
 ### Get weather by address - Success case
-GET http://localhost:8080/weather?address=cuajimalpa ciudad de méxico
+GET http://localhost:8080/weather?address=cuajimalpa%20Ciudad%20de%20Mexico
 
 ### Get weather by address - Not found case
-GET http://localhost:8080/weather?address=a unknown place in mars
+GET http://localhost:8080/weather?address=a%20unknown%20place%20in%20mars
 
 ### Get weather - Bad request (missing address parameter)
 GET http://localhost:8080/weather

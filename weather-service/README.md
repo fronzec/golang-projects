@@ -1,20 +1,46 @@
 # Weather API Service
 
-API created in go to solve this problem https://roadmap.sh/projects/weather-api-wrapper-service
+API created in go to solve this problem [Weather API Wrapper Service](https://roadmap.sh/projects/weather-api-wrapper-service)
 
-# Roadmap
+## Setup
 
-```mermaid
-gantt
-    title Project Roadmap
-    dateFormat  YYYY-MM-DD
-    section Planning
-    Research                :done, 2025-02-01, 2025-02-05
-    section Implementation
-    Create simple API with hardcoded response, use clean architecture and create a API specification    :active, 2025-02-10, 2025-02-20
-    Redis conection with envars     :2025-02-20, 2025-02-24
-    Connect with real weather api        :2025-02-24, 2025-02-28
-    Handling errors     :2025-02-28, 2025-03-04
-    Rate limiter : 2025-03-04, 2025-03-15
-    Deployment demo :2025-03-15, 10d
+### Prerequisites, tech stacks & tools
+
+- Have an API key for [Visual Crossing](https://www.visualcrossing.com/)
+- Go
+- Redis
+- Podman and [podman-compose](https://github.com/containers/podman-compose) (suggested)
+- or Docker and [docker compose](https://docs.docker.com/compose/)
+- Visual Studio Code (suggested)
+- Install [Go extension](https://marketplace.visualstudio.com/items?itemName=golang.go) for VsCode
+- Install [Rest Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) for VsCode (suggested)
+
+### Setup dependencies
+
+This will create a local development environment with a Redis server.
+
+Using podman and podman-compose (suggested) and positioning in the root of the project
+
+```bash
+podman-compose --file ./_devenv/docker-compose.yml --project-name weather-service up -d
 ```
+
+Using docker compose
+
+```bash
+docker compose --file ./_devenv/docker-compose.yml --project-name weather-service up -d
+```
+
+### How to run the application using VsCode
+
+1. Have the development environment running
+2. Open the project in VsCode
+3. Copy the example env file and rename it to `.env` and add your Visual Crossing API key
+4. With Visual Studio Code open run the application using the launch configuration
+5. You can test the API using the rest client file `api_test.http`
+
+Image of running the application
+![Running the application](./_devenv/img/run.png)
+
+Image of testing the API
+![Testing the API](./_devenv/img/test1.png)
