@@ -1,0 +1,14 @@
+### Ping server - Health check
+GET http://localhost:8080/ping
+
+### Get weather by address - Success case
+GET http://localhost:8080/weather?address=cuajimalpa%20Ciudad%20de%20Mexico
+
+### Get weather by address - Not found case
+GET http://localhost:8080/weather?address=a%20unknown%20place%20in%20mars
+
+### Get weather - Bad request (missing address parameter)
+GET http://localhost:8080/weather
+
+### Example Visual Crossing Weather API request (for reference)
+GET https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/cuajimalpa%20Ciudad%20de%20Mexico?unitGroup=us&include=days&key={{SECRET_VISUAL_CROSSING}}&contentType=json

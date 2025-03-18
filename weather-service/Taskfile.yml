@@ -1,0 +1,31 @@
+---
+version: '3'
+silent: true
+dotenv: ['.env', '{{.ENV}}/.env', '{{.HOME}}/.env']
+tasks:
+  hello:
+    cmds:
+      - echo "Task works ok!!!"
+  setupenv:
+    cmds:
+      - f ./_devenv/.env && echo "==========> ./_devenv/.env file already exists, their values will be used" || cp ./_devenv/env.example ./_devenv/.env
+  podmanup:
+    cmds:
+      - podman-compose --file ./_devenv/docker-compose.yml --project-name weather-service up -d
+  # remove pods but not orphans or volumes
+  podmandown:
+    cmds:
+      - podman-compose --file ./_devenv/docker-compose.yml --project-name weather-service down
+  # removes all
+  podmandownfull:
+    cmds:
+      - podman-compose --file ./_devenv/docker-compose.yml --project-name weather-service down --remove-orphans --volumes
+  podmanstart:
+    cmds:
+      - podman-compose --file ./_devenv/docker-compose.yml --project-name weather-service start
+  podmanstop:
+    cmds:
+      - podman-compose --file ./_devenv/docker-compose.yml --project-name weather-service stop
+  air:
+    cmds:
+      - air

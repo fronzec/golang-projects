@@ -1,0 +1,159 @@
+openapi: 3.0.0
+info:
+  title: Weather Service API
+  description: |
+    A weather service API that provides weather information for a given address.
+    The API includes rate limiting of 2 requests per second with a burst of 5 requests.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+paths:
+  /ping:
+    get:
+      summary: Ping the server
+      description: Returns an empty JSON object to check if the server is running.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+  /weather:
+    get:
+      summary: Get weather information
+      description: |
+        Fetches weather information based on the provided address.
+        This endpoint is rate limited to 2 requests per second with a burst of 5 requests.
+      parameters:
+        - name: address
+          in: query
+          required: true
+          description: The address for which weather information should be fetched.
+          schema:
+            type: string
+            example: "cuajimalpa Ciudad de Mexico"
+      responses:
+        '200':
+          description: Weather information retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  queryCost:
+                    type: integer
+                    description: Cost of the query
+                  latitude:
+                    type: number
+                    format: float
+                    description: Latitude of the location
+                  longitude:
+                    type: number
+                    format: float
+                    description: Longitude of the location
+                  resolvedAddress:
+                    type: string
+                    description: Full resolved address
+                  address:
+                    type: string
+                    description: Original query address
+                  timezone:
+                    type: string
+                    description: Timezone of the location
+                  tzoffset:
+                    type: integer
+                    description: Timezone offset in hours
+                  days:
+                    type: array
+                    description: Weather information for each day
+                    items:
+                      type: object
+                      properties:
+                        datetime:
+                          type: string
+                          format: date
+                          description: Date of the weather information
+                        tempmax:
+                          type: number
+                          description: Maximum temperature in Fahrenheit
+                        tempmin:
+                          type: number
+                          description: Minimum temperature in Fahrenheit
+                        temp:
+                          type: number
+                          description: Average temperature in Fahrenheit
+                        humidity:
+                          type: number
+                          description: Humidity percentage
+                        conditions:
+                          type: string
+                          description: Weather conditions description
+                        description:
+                          type: string
+                          description: Detailed weather description
+              example:
+                queryCost: 192
+                latitude: 19.3545
+                longitude: -99.2999
+                resolvedAddress: "Cuajimalpa, Cuajimalpa de Morelos, CDMX, México"
+                address: "cuajimalpa Ciudad de Mexico"
+                timezone: "America/Mexico_City"
+                tzoffset: -6
+                days:
+                  - datetime: "2025-02-12"
+                    tempmax: 75.9
+                    tempmin: 51.9
+                    temp: 64.5
+                    humidity: 50.6
+                    conditions: "Rain, Partially cloudy"
+                    description: "Partly cloudy throughout the day with afternoon rain."
+        '404':
+          description: Weather information not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: "Weather information not available"
+        '400':
+          description: Bad request - missing address parameter
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: "Missing address parameter"
+        '429':
+          description: Too Many Requests - Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: "Rate limit exceeded"
+                message: "Too many requests, please try again later"
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: "Unable to fetch weather information"
