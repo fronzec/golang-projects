@@ -1,0 +1,55 @@
+# EXAMPLE USAGE:
+#
+#   Refer for explanation to following link:
+#   https://lefthook.dev/configuration/
+#
+# pre-push:
+#   jobs:
+#     - name: packages audit
+#       tags:
+#         - frontend
+#         - security
+#       run: yarn audit
+#
+#     - name: gems audit
+#       tags:
+#         - backend
+#         - security
+#       run: bundle audit
+#
+pre-commit:
+    parallel: false
+    jobs:
+#     - run: yarn eslint {staged_files}
+#       glob: "*.{js,ts,jsx,tsx}"
+#
+#     - name: rubocop
+#       glob: "*.rb"
+#       exclude:
+#         - config/application.rb
+#         - config/routes.rb
+#       run: bundle exec rubocop --force-exclusion {all_files}
+#
+#     - name: govet
+#       files: git ls-files -m
+#       glob: "*.go"
+#       run: go vet {files}
+#
+#     - script: "hello.js"
+#       runner: node
+#
+      - name: go-test-weather-service
+        glob: "weather-service/**/*.go"
+        run: cd weather-service && go test ./...
+
+      - name: go-test-memkv
+        glob: "memkv/**/*.go"
+        run: cd memkv && go test ./...
+
+      - name: go-test-go-chi-restful-api
+        glob: "go-chi-restful-api/**/*.go"
+        run: cd go-chi-restful-api && go test ./...
+
+      - name: go-test-secmoney
+        glob: "secmoney/**/*.go"
+        run: cd secmoney && go test ./...
