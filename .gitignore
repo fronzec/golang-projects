@@ -167,6 +167,17 @@ fabric.properties
 
 
 
+### Lefthook ###
+.lefthook-local/
+.lefthook.local.yml
+
+### GitGuardian ###
+.env
+.env.*
+!.env.example
+!.env.template
+.cache_ggshield
+
 ### macOS ###
 # General
 .DS_Store
@@ -220,4 +231,3 @@ Temporary Items
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/jetbrains+all,goland+all,go,visualstudiocode,macos
-*.env
