@@ -53,3 +53,7 @@ pre-commit:
       - name: go-test-secmoney
         glob: "secmoney/**/*.go"
         run: cd secmoney && go test ./...
+        
+      - name: ggshield-secret-scan
+        run: ggshield secret scan pre-commit
+
