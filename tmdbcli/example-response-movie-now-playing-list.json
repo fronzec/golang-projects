@@ -1,0 +1,406 @@
+{
+    "dates": {
+      "maximum": "2025-03-26",
+      "minimum": "2025-02-12"
+    },
+    "page": 1,
+    "results": [
+      {
+        "adult": false,
+        "backdrop_path": "/gsQJOfeW45KLiQeEIsom94QPQwb.jpg",
+        "genre_ids": [
+          28,
+          53
+        ],
+        "id": 1125899,
+        "original_language": "en",
+        "original_title": "Cleaner",
+        "overview": "Cuando un grupo de activistas radicales se apodera de la gala anual de una empresa energética y toma 300 rehenes, una ex soldado convertida en limpiacristales suspendida 50 pisos en el exterior del edificio debe salvar a los que están atrapados dentro, incluido su hermano pequeño.",
+        "popularity": 400.92131517857143,
+        "poster_path": "/mwzDApMZAGeYCEVjhegKvCzDX0W.jpg",
+        "release_date": "2025-02-19",
+        "title": "Cleaner",
+        "video": false,
+        "vote_average": 6.238,
+        "vote_count": 65
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/8eifdha9GQeZAkexgtD45546XKx.jpg",
+        "genre_ids": [
+          28,
+          53,
+          878
+        ],
+        "id": 822119,
+        "original_language": "en",
+        "original_title": "Captain America: Brave New World",
+        "overview": "Tras reunirse con el recientemente electo presidente de los Estados Unidos Thaddeus Ross, Sam se encuentra en medio de un conflicto internacional. Debe descubrir la razón de un nefasto complot mundial antes de que el verdadero artífice detrás del mismo haga que el mundo entero entre en caos.",
+        "popularity": 297.06138571428573,
+        "poster_path": "/im71UJzBqY03swuGYVR28j0JFM2.jpg",
+        "release_date": "2025-02-12",
+        "title": "Capitán América: Un nuevo mundo",
+        "video": false,
+        "vote_average": 6.129,
+        "vote_count": 1106
+      },
+      {
+        "adult": false,
+        "backdrop_path": null,
+        "genre_ids": [
+          28,
+          10752
+        ],
+        "id": 1373723,
+        "original_language": "en",
+        "original_title": "The Codes of War",
+        "overview": "",
+        "popularity": 286.03203839285715,
+        "poster_path": "/oXeiQAfRK90pxxhP5iKPXQqAIN1.jpg",
+        "release_date": "2025-03-20",
+        "title": "The Codes of War",
+        "video": false,
+        "vote_average": 0,
+        "vote_count": 0
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/2siOHQYDG7gCQB6g69g2pTZiSia.jpg",
+        "genre_ids": [
+          10751,
+          14
+        ],
+        "id": 447273,
+        "original_language": "en",
+        "original_title": "Snow White",
+        "overview": "Una adaptación en vivo del clásico cuento de hadas sobre una hermosa joven princesa que, mientras es acosada por una reina celosa, busca refugio en la casa de siete enanos en la campiña alemana.",
+        "popularity": 212.63688482142857,
+        "poster_path": "/eaEGthsGmYfGvyOJZguxlcNj378.jpg",
+        "release_date": "2025-03-19",
+        "title": "Blanca Nieves",
+        "video": false,
+        "vote_average": 4.595,
+        "vote_count": 288
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/e807jDKiFcntZS32ze88X6I96OD.jpg",
+        "genre_ids": [
+          16,
+          28
+        ],
+        "id": 1297763,
+        "original_language": "ja",
+        "original_title": "ニンジャバットマン対ヤクザリーグ",
+        "overview": "Sólo un día después de regresar del pasado, Batman y sus aliados descubren que el mundo no es exactamente el mismo que dejaron. Toda la isla de Japón ya no existe y los héroes de la Liga de la Justicia tampoco. Pero antes de que puedan comprender lo que está pasando, los yakuza empiezan a llover literalmente del cielo. Secuela de la película anime 3D \"Batman Ninja\"",
+        "popularity": 183.90154375,
+        "poster_path": "/3hVjnB5FE4gBrR5rqk42qiBFgGe.jpg",
+        "release_date": "2025-03-17",
+        "title": "Batman Ninja vs La Liga Yakuza",
+        "video": false,
+        "vote_average": 6.7,
+        "vote_count": 62
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/2n7lYEeIbucsEQCswRcVB6ZYmMP.jpg",
+        "genre_ids": [
+          878,
+          12,
+          28
+        ],
+        "id": 777443,
+        "original_language": "en",
+        "original_title": "The Electric State",
+        "overview": "De la mano de un robot, un contrabandista y su ocurrente compañero, una adolescente huérfana emprende un inolvidable viaje en busca de su hermano menor desaparecido.",
+        "popularity": 139.17585892857144,
+        "poster_path": "/nCuSMDWhWGJAPdp9rSDIogG5X82.jpg",
+        "release_date": "2025-03-07",
+        "title": "Estado eléctrico",
+        "video": false,
+        "vote_average": 6.592,
+        "vote_count": 753
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/deUWVEgNh2IGjShyymZhaYP40ye.jpg",
+        "genre_ids": [
+          28,
+          12,
+          53
+        ],
+        "id": 1356039,
+        "original_language": "es",
+        "original_title": "Contraataque",
+        "overview": "Tras rescatar a dos rehenes y hacerse de un nuevo enemigo, el capitán Guerrero y su escuadrón de élite se enfrentan a la emboscada de un grupo criminal.",
+        "popularity": 132.6946919642857,
+        "poster_path": "/kxnFdLJhi37ZVFDCL1ka0yeQVU5.jpg",
+        "release_date": "2025-02-27",
+        "title": "Contraataque",
+        "video": false,
+        "vote_average": 8.499,
+        "vote_count": 533
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/AtciHGgpOU7ngsVhXbS2S5Spdlv.jpg",
+        "genre_ids": [
+          28,
+          35
+        ],
+        "id": 1077782,
+        "original_language": "en",
+        "original_title": "Old Guy",
+        "overview": "Danny Dolinski (Christoph Waltz) es un veterano sicario que, pese a estar a punto de retirarse, está convencido de que sigue siendo el mejor en su trabajo. La compañía para la que trabajaba vuelve a llamarlo con una nueva misión: entrenar a Wihlborg (Cooper Hoffman), un joven prodigio recién llegado. Aunque al principio no lograrán entenderse, tendrán que unir sus habilidades para descubrir la verdad que se esconde tras la organización para la que trabajan.",
+        "popularity": 113.51458214285715,
+        "poster_path": "/uO7d83mC6Jvdg5G1GShN5uOnFfo.jpg",
+        "release_date": "2024-12-13",
+        "title": "El maestro del crimen",
+        "video": false,
+        "vote_average": 5.461,
+        "vote_count": 51
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/gFFqWsjLjRfipKzlzaYPD097FNC.jpg",
+        "genre_ids": [
+          28,
+          80,
+          53
+        ],
+        "id": 1126166,
+        "original_language": "en",
+        "original_title": "Flight Risk",
+        "overview": "Un piloto transporta a un alguacil del aire que acompaña a un fugitivo a juicio. A medida que atraviesan el desierto de Alaska, la tensión aumenta y la confianza se pone a prueba, ya que no todos a bordo son quienes parecen.",
+        "popularity": 106.2720419642857,
+        "poster_path": "/8T6nkYb4W8BIeafmFffyfsRciTL.jpg",
+        "release_date": "2025-01-22",
+        "title": "Amenaza en el aire",
+        "video": false,
+        "vote_average": 6.2,
+        "vote_count": 523
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/9nhjGaFLKtddDPtPaX5EmKqsWdH.jpg",
+        "genre_ids": [
+          10749,
+          878,
+          53
+        ],
+        "id": 950396,
+        "original_language": "en",
+        "original_title": "The Gorge",
+        "overview": "Dos agentes altamente entrenados se unen a la distancia tras ser enviados a proteger bordes opuestos de un abismo misterioso. Cuando la maldad emerge de él, tienen que trabajar juntos para sobrevivir a lo que yace dentro del abismo.",
+        "popularity": 101.926825,
+        "poster_path": "/3s0jkMh0YUhIeIeioH3kt2X4st4.jpg",
+        "release_date": "2025-02-13",
+        "title": "El abismo secreto",
+        "video": false,
+        "vote_average": 7.748,
+        "vote_count": 2140
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/hD2SN5bbqxk0kcRmsATJkXObgnZ.jpg",
+        "genre_ids": [
+          28,
+          80,
+          14,
+          53
+        ],
+        "id": 1405338,
+        "original_language": "ja",
+        "original_title": "Demon City 鬼ゴロシ",
+        "overview": "Un exasesino, acusado de matar a su familia y dado por muerto, no se detendrá ante nada hasta vengarse de los «demonios» enmascarados que recorren su ciudad.",
+        "popularity": 94.44450982142858,
+        "poster_path": "/cU6InMc8NYc54Ok4NnNHdjipqCQ.jpg",
+        "release_date": "2025-02-26",
+        "title": "Oni-Goroshi: Ciudad de los demonios",
+        "video": false,
+        "vote_average": 6.9,
+        "vote_count": 169
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/ujtLvjVCBpgouQTyEG4qNVTxlXi.jpg",
+        "genre_ids": [
+          53,
+          80,
+          9648
+        ],
+        "id": 1210938,
+        "original_language": "ko",
+        "original_title": "계시록",
+        "overview": "Un pastor que cree en las revelaciones divinas y un detective atormentado por visiones investigan una desaparición, liberando sus propios demonios en el proceso.",
+        "popularity": 93.36690267857144,
+        "poster_path": "/wYLUqqlteOFBZkHClr4nmcc48FA.jpg",
+        "release_date": "2025-03-20",
+        "title": "Revelación",
+        "video": false,
+        "vote_average": 6.3,
+        "vote_count": 49
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/gjqtmaKgZCZhCYgMJwsd3JHIAUt.jpg",
+        "genre_ids": [
+          27
+        ],
+        "id": 937393,
+        "original_language": "en",
+        "original_title": "Bloat",
+        "overview": "",
+        "popularity": 75.08934732142858,
+        "poster_path": "/nlutnb8dO390fo5zkRayYiVuKdU.jpg",
+        "release_date": "2025-03-07",
+        "title": "Bloat",
+        "video": false,
+        "vote_average": 4.5,
+        "vote_count": 11
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/2jllAxMf7dTMt1fw9A1slsaj6Fv.jpg",
+        "genre_ids": [
+          35,
+          53
+        ],
+        "id": 1362608,
+        "original_language": "fi",
+        "original_title": "Pikku Siperia",
+        "overview": "Un pastor sufre una crisis de fe cuando un meteorito cae sobre su pequeño pueblo en Finlandia, lo cual no solo desata el caos, sino que además incita al delito.",
+        "popularity": 69.68075714285715,
+        "poster_path": "/dI5eWAvq68mddW6JkRodywrOBF.jpg",
+        "release_date": "2025-03-20",
+        "title": "En un confín del mundo",
+        "video": false,
+        "vote_average": 7.056,
+        "vote_count": 27
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/qSh3Aav8Kcoe2D2Azr8Bh1J0HAa.jpg",
+        "genre_ids": [
+          53,
+          18
+        ],
+        "id": 1145725,
+        "original_language": "en",
+        "original_title": "Tyler Perry's Duplicity",
+        "overview": "Marley, una poderosa abogada, se enfrenta a su caso más personal cuando se le encomienda descubrir la verdad detrás del asesinato del esposo de su mejor amiga, Fela. Con la ayuda de su novio, un expolicía devenido en investigador privado, la búsqueda de la verdad la lleva por un peligroso laberinto de engaños y traiciones.",
+        "popularity": 61.73856607142857,
+        "poster_path": "/k4fJun2pJ70BBFMgGAZddk3m7sg.jpg",
+        "release_date": "2025-03-19",
+        "title": "Duplicidad de Tyler Perry",
+        "video": false,
+        "vote_average": 6.898,
+        "vote_count": 54
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/lsgT602GYV8ts97sKH1gWFtQs1k.jpg",
+        "genre_ids": [
+          16,
+          12,
+          35,
+          10751,
+          14
+        ],
+        "id": 1104845,
+        "original_language": "en",
+        "original_title": "Plankton: The Movie",
+        "overview": "La enredada historia de amor de Plankton con su esposa computadora suma una complicación más cuando ella se rebela y decide destruir el mundo sin él.",
+        "popularity": 58.44940357142857,
+        "poster_path": "/fCvwQJVcbjNub2PiKzZmQXR7i1I.jpg",
+        "release_date": "2025-03-08",
+        "title": "Plankton: La película",
+        "video": false,
+        "vote_average": 7,
+        "vote_count": 55
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/zdy3h2sMppVp1Q41HpLiyF5w7es.jpg",
+        "genre_ids": [
+          16,
+          14,
+          12
+        ],
+        "id": 823219,
+        "original_language": "lv",
+        "original_title": "Straume",
+        "overview": "En un mundo al borde del colapso, un gato solitario pierde su hogar por una inundación y encuentra refugio en un barco con otras especies. Juntos, deberán superar diferencias y desafíos mientras navegan por un misterioso paisaje sumergido.",
+        "popularity": 56.843762500000004,
+        "poster_path": "/337MqZW7xii2evUDVeaWXAtopff.jpg",
+        "release_date": "2024-08-29",
+        "title": "Flow",
+        "video": false,
+        "vote_average": 8.275,
+        "vote_count": 1640
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/qUc0Hol3eP74dbW4YyqT6oRLYgT.jpg",
+        "genre_ids": [
+          878,
+          35,
+          12
+        ],
+        "id": 696506,
+        "original_language": "en",
+        "original_title": "Mickey 17",
+        "overview": "Mickey Barnes se encuentra en la extraordinaria circunstancia de trabajar para un empleador que exige el compromiso máximo con el trabajo… morir, para ganarse la vida.",
+        "popularity": 53.83770089285714,
+        "poster_path": "/fjIHkLGIZdjKIKe252gSFt5QzVK.jpg",
+        "release_date": "2025-02-28",
+        "title": "Mickey 17",
+        "video": false,
+        "vote_average": 7,
+        "vote_count": 948
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/jl2YIADk391yc6Qjy9JhgCRkHJk.jpg",
+        "genre_ids": [
+          16,
+          18,
+          35
+        ],
+        "id": 1064486,
+        "original_language": "en",
+        "original_title": "Memoir of a Snail",
+        "overview": "Separada a la fuerza de su hermano gemelo cuando quedan huérfanos, una melancólica inadaptada aprende a encontrar la confianza en sí misma en medio del desorden de las desgracias y la vida cotidiana.",
+        "popularity": 53.661046428571424,
+        "poster_path": "/sJ7bgsuC06tpC7wVl3LUW5cyKmX.jpg",
+        "release_date": "2024-10-17",
+        "title": "Memorias de un caracol",
+        "video": false,
+        "vote_average": 7.926,
+        "vote_count": 311
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/wLxQPbIM0Bcz832ekTVVlDq1AHV.jpg",
+        "genre_ids": [
+          35,
+          27,
+          878,
+          53
+        ],
+        "id": 1084199,
+        "original_language": "en",
+        "original_title": "Companion",
+        "overview": "La muerte de un multimillonario desencadena una cadena de acontecimientos para Iris y sus amigos durante un viaje de fin de semana a su propiedad junto al lago.",
+        "popularity": 52.876930357142854,
+        "poster_path": "/dZR98C2Tzefugivw21yEfYvp1G9.jpg",
+        "release_date": "2025-01-22",
+        "title": "Compañera perfecta",
+        "video": false,
+        "vote_average": 7.1,
+        "vote_count": 855
+      }
+    ],
+    "total_pages": 230,
+    "total_results": 4584
+  }
