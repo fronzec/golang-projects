@@ -1,7 +1,7 @@
 ARG SRCDIR=/go/fronzec/memkv
 
 # Building stage.
-FROM golang:1.16.5 AS build
+FROM golang:1.24.1 AS build
 ARG SRCDIR
 
 WORKDIR ${SRCDIR}
@@ -14,7 +14,7 @@ ADD go.mod go.sum ./
 RUN go build -o memkv cmd/memkv/main.go
 
 # Runtime stage.
-FROM golang:1.16.5
+FROM golang:1.24.1
 ARG SRCDIR
 
 WORKDIR /opt/memkv
