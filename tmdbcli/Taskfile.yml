@@ -36,7 +36,3 @@ tasks:
   upcomingcmd:
     cmds:
       - go run main.go movies --type upcoming
-
-  air:
-    cmds:
-      - air
