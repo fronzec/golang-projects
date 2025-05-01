@@ -20,6 +20,10 @@ tasks:
     cmds:
       - go test ./... -v
 
+  topcmd:
+    cmds:
+      - go run main.go movies --type top
+
   air:
     cmds:
       - air
