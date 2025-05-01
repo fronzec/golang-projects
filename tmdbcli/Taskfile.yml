@@ -28,6 +28,11 @@ tasks:
     cmds:
       - go run main.go movies --type playing
 
+
+  popularcmd:
+    cmds:
+      - go run main.go movies --type popular
+
   air:
     cmds:
       - air

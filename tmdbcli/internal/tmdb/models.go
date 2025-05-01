@@ -40,3 +40,11 @@ type Dates struct {
 	Maximum string `json:"maximum"`
 	Minimum string `json:"minimum"`
 }
+
+// PopularResponse representa la respuesta completa del endpoint popular.
+type PopularResponse struct {
+	Page         int     `json:"page"`
+	Results      []Movie `json:"results"`
+	TotalPages   int     `json:"total_pages"`
+	TotalResults int     `json:"total_results"`
+}

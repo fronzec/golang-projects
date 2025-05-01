@@ -53,7 +53,23 @@ var (
 				}
 				fmt.Println("Now Playing Movies:")
 
-			 }else {
+			 } else if movieType == "popular" {
+				apiKey := tmdb.GetAPIKeyFromEnv()
+				if apiKey == "" {
+					fmt.Println("TMDB_API_KEY no está configurada en el entorno")
+					os.Exit(1)
+				}
+				client := tmdb.NewClient(apiKey)
+				resp, err := client.GetPopularMovies(1)
+				if err != nil {
+					fmt.Printf("Error obteniendo popular movies: %v\n", err)
+					os.Exit(1)
+				}
+				for _, m := range resp.Results {
+					t.AppendRow(table.Row{m.Title, m.ReleaseDate, m.Popularity})
+				}
+				fmt.Println("Popular Movies:")
+			 } else {
 				fmt.Printf("Tipo de película no soportado aún: %s\n", movieType)
 				os.Exit(1)
 			}
