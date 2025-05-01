@@ -25,3 +25,18 @@ type TopRatedResponse struct {
 	TotalPages   int     `json:"total_pages"`
 	TotalResults int     `json:"total_results"`
 }
+
+// NowPlayingResponse representa la respuesta completa del endpoint now_playing.
+
+type NowPlayingResponse struct {
+	Page         int     `json:"page"`
+	Results      []Movie `json:"results"`
+	TotalPages   int     `json:"total_pages"`
+	TotalResults int     `json:"total_results"`
+	Dates        Dates   `json:"dates"`
+}
+
+type Dates struct {
+	Maximum string `json:"maximum"`
+	Minimum string `json:"minimum"`
+}

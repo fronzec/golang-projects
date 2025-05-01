@@ -24,6 +24,10 @@ tasks:
     cmds:
       - go run main.go movies --type top
 
+  playingcmd:
+    cmds:
+      - go run main.go movies --type playing
+
   air:
     cmds:
       - air
