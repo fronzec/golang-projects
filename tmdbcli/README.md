@@ -13,7 +13,6 @@ A command-line interface for The Movie Database (TMDB) API. To solve https://roa
 
 ### Development Tools
 
-- [Air](https://github.com/cosmtrek/air) for live reload during development
 - [Task](https://taskfile.dev/) for task automation
 
 ### Environment Setup
@@ -29,12 +28,12 @@ A command-line interface for The Movie Database (TMDB) API. To solve https://roa
 
 Using Task:
 ```bash
-task air  # Run with live reload
+task topcmd  # Run a command to get top rated movies
 ```
 
 Or using Go directly:
 ```bash
-go run .  # Run without live reload
+go run main.go movies --type top  # Run a command to get top rated movies
 ```
 
 ### Building

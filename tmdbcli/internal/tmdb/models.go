@@ -1,6 +1,6 @@
 package tmdb
 
-// Movie representa una película individual en la respuesta de top-rated.
+// Movie represents an individual movie in the top-rated response.
 type Movie struct {
 	Adult            bool     `json:"adult"`
 	BackdropPath     string   `json:"backdrop_path"`
@@ -18,7 +18,7 @@ type Movie struct {
 	VoteCount        int      `json:"vote_count"`
 }
 
-// TopRatedResponse representa la respuesta completa del endpoint top-rated.
+// TopRatedResponse represents the full response from the top-rated endpoint.
 type TopRatedResponse struct {
 	Page         int     `json:"page"`
 	Results      []Movie `json:"results"`
@@ -26,7 +26,7 @@ type TopRatedResponse struct {
 	TotalResults int     `json:"total_results"`
 }
 
-// NowPlayingResponse representa la respuesta completa del endpoint now_playing.
+// NowPlayingResponse represents the full response from the now_playing endpoint.
 
 type NowPlayingResponse struct {
 	Page         int     `json:"page"`
@@ -41,7 +41,7 @@ type Dates struct {
 	Minimum string `json:"minimum"`
 }
 
-// PopularResponse representa la respuesta completa del endpoint popular.
+// PopularResponse represents the full response from the popular endpoint.
 type PopularResponse struct {
 	Page         int     `json:"page"`
 	Results      []Movie `json:"results"`
@@ -49,7 +49,7 @@ type PopularResponse struct {
 	TotalResults int     `json:"total_results"`
 }
 
-// UpcomingResponse representa la respuesta completa del endpoint upcoming.
+// UpcomingResponse represents the full response from the upcoming endpoint.
 type UpcomingResponse struct {
 	Page         int     `json:"page"`
 	Results      []Movie `json:"results"`

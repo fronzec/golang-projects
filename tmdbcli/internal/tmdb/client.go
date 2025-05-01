@@ -7,14 +7,14 @@ import (
 	"os"
 )
 
-// Client es el cliente para interactuar con la API de TheMovieDB.
+// Client is the client to interact with TheMovieDB API.
 type Client struct {
 	APIKey  string
 	BaseURL string
 	Client  *http.Client
 }
 
-// NewClient crea una nueva instancia del cliente TMDB.
+// NewClient creates a new instance of the TMDB client.
 func NewClient(apiKey string) *Client {
 	return &Client{
 		APIKey:  apiKey,
@@ -23,10 +23,10 @@ func NewClient(apiKey string) *Client {
 	}
 }
 
-// GetTopRatedMovies obtiene las películas top-rated desde la API.
+// GetTopRatedMovies fetches the top-rated movies from the API.
 func (c *Client) GetTopRatedMovies(page int) (*TopRatedResponse, error) {
 	url := fmt.Sprintf("%s/movie/top_rated?language=en-US&page=%d", c.BaseURL, page)
-	// Crear request manualmente para agregar headers
+	// Create request manually to add headers
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return nil, err
@@ -41,7 +41,7 @@ func (c *Client) GetTopRatedMovies(page int) (*TopRatedResponse, error) {
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("error en la respuesta de TMDB: %s", resp.Status)
+		return nil, fmt.Errorf("error in TMDB response: %s", resp.Status)
 	}
 
 	var result TopRatedResponse
@@ -68,7 +68,7 @@ func (c *Client) GetNowPlayingMovies(page int) (*NowPlayingResponse, error) {
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("error en la respuesta de TMDB: %s", resp.Status)
+		return nil, fmt.Errorf("error in TMDB response: %s", resp.Status)
 	}
 
 	var result NowPlayingResponse
@@ -95,7 +95,7 @@ func (c *Client) GetPopularMovies(page int) (*PopularResponse, error) {
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("error en la respuesta de TMDB: %s", resp.Status)
+		return nil, fmt.Errorf("error in TMDB response: %s", resp.Status)
 	}
 
 	var result PopularResponse
@@ -122,7 +122,7 @@ func (c *Client) GetUpcomingMovies(page int) (*UpcomingResponse, error) {
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("error en la respuesta de TMDB: %s", resp.Status)
+		return nil, fmt.Errorf("error in TMDB response: %s", resp.Status)
 	}
 
 	var result UpcomingResponse
@@ -133,7 +133,7 @@ func (c *Client) GetUpcomingMovies(page int) (*UpcomingResponse, error) {
 }
 
 
-// GetAPIKeyFromEnv obtiene la API Key desde la variable de entorno TMDB_API_KEY.
+// GetAPIKeyFromEnv gets the API Key from the TMDB_API_KEY environment variable.
 func GetAPIKeyFromEnv() string {
 	return os.Getenv("TMDB_API_KEY")
 }
