@@ -105,6 +105,33 @@ func (c *Client) GetPopularMovies(page int) (*PopularResponse, error) {
 	return &result, nil
 }
 
+func (c *Client) GetUpcomingMovies(page int) (*UpcomingResponse, error) {
+	url := fmt.Sprintf("%s/movie/upcoming?language=en-US&page=%d", c.BaseURL, page)
+
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", c.APIKey))
+
+	resp, err := c.Client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("error en la respuesta de TMDB: %s", resp.Status)
+	}
+
+	var result UpcomingResponse
+	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+		return nil, err
+	}
+	return &result, nil
+}
+
 
 // GetAPIKeyFromEnv obtiene la API Key desde la variable de entorno TMDB_API_KEY.
 func GetAPIKeyFromEnv() string {

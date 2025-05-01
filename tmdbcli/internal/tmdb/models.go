@@ -48,3 +48,12 @@ type PopularResponse struct {
 	TotalPages   int     `json:"total_pages"`
 	TotalResults int     `json:"total_results"`
 }
+
+// UpcomingResponse representa la respuesta completa del endpoint upcoming.
+type UpcomingResponse struct {
+	Page         int     `json:"page"`
+	Results      []Movie `json:"results"`
+	TotalPages   int     `json:"total_pages"`
+	TotalResults int     `json:"total_results"`
+	Dates        Dates   `json:"dates"`
+}

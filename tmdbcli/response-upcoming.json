@@ -1,0 +1,404 @@
+{
+    "dates": {
+        "maximum": "2025-05-28",
+        "minimum": "2025-05-07"
+    },
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/op3qmNhvwEvyT7UFyPbIfQmKriB.jpg",
+            "genre_ids": [
+                28,
+                14,
+                12
+            ],
+            "id": 324544,
+            "original_language": "en",
+            "original_title": "In the Lost Lands",
+            "overview": "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
+            "popularity": 288.7711,
+            "poster_path": "/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
+            "release_date": "2025-02-27",
+            "title": "In the Lost Lands",
+            "video": false,
+            "vote_average": 6.317,
+            "vote_count": 303
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/bFmziv84NfEVEGTK8c6EVY3bxve.jpg",
+            "genre_ids": [
+                28,
+                80,
+                9648,
+                53
+            ],
+            "id": 1180906,
+            "original_language": "en",
+            "original_title": "Desert Dawn",
+            "overview": "A newly appointed small-town sheriff and his begrudging deputy get tangled up in a web of lies and corruption involving shady businessmen and the cartel while investigating the murder of a mysterious woman.",
+            "popularity": 248.4328,
+            "poster_path": "/S21BfLrJSD9njucBfY3CKqp8rD.jpg",
+            "release_date": "2025-05-15",
+            "title": "Desert Dawn",
+            "video": false,
+            "vote_average": 0.0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/oUgVgGaNqV9Y0Zdyjc1kCpzIe4G.jpg",
+            "genre_ids": [
+                27,
+                53
+            ],
+            "id": 1233413,
+            "original_language": "en",
+            "original_title": "Sinners",
+            "overview": "Trying to leave their troubled lives behind, twin brothers return to their hometown to start again, only to discover that an even greater evil is waiting to welcome them back.",
+            "popularity": 229.0284,
+            "poster_path": "/jYfMTSiFFK7ffbY2lay4zyvTkEk.jpg",
+            "release_date": "2025-04-16",
+            "title": "Sinners",
+            "video": false,
+            "vote_average": 7.617,
+            "vote_count": 465
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/r4X2xRrWleVgx0kahP27xRmm3ia.jpg",
+            "genre_ids": [
+                27,
+                53
+            ],
+            "id": 1083968,
+            "original_language": "en",
+            "original_title": "Locked",
+            "overview": "When Eddie breaks into a luxury SUV, he steps into a deadly trap set by William, a self-proclaimed vigilante delivering his own brand of twisted justice. With no means of escape, Eddie must fight to survive in a ride where escape is an illusion, survival is a nightmare, and justice shifts into high gear.",
+            "popularity": 137.0233,
+            "poster_path": "/hhkiqXpfpufwxVrdSftzeKIANl3.jpg",
+            "release_date": "2025-03-20",
+            "title": "Locked",
+            "video": false,
+            "vote_average": 6.2,
+            "vote_count": 89
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/rdxdvXQGqCj2Vb7SvTL8gdxlSzI.jpg",
+            "genre_ids": [
+                80,
+                53,
+                28
+            ],
+            "id": 870028,
+            "original_language": "en",
+            "original_title": "The Accountant 2",
+            "overview": "When an old acquaintance is murdered, Wolff is compelled to solve the case. Realizing more extreme measures are necessary, Wolff recruits his estranged and highly lethal brother, Brax, to help. In partnership with Treasury Agent Marybeth Medina, they uncover a deadly conspiracy, becoming targets of a ruthless network of killers who will stop at nothing to keep their secrets buried.",
+            "popularity": 129.1642,
+            "poster_path": "/kMDUS7VmFhb2coRfVBoGLR8ADBt.jpg",
+            "release_date": "2025-04-23",
+            "title": "The Accountant 2",
+            "video": false,
+            "vote_average": 7.3,
+            "vote_count": 83
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/eDBZN0TbWkxoAB0qIDFagVcPPTN.jpg",
+            "genre_ids": [
+                27,
+                14,
+                35,
+                12
+            ],
+            "id": 1153714,
+            "original_language": "en",
+            "original_title": "Death of a Unicorn",
+            "overview": "A father and daughter accidentally hit and kill a unicorn while en route to a weekend retreat, where his billionaire boss seeks to exploit the creature’s miraculous curative properties.",
+            "popularity": 127.3903,
+            "poster_path": "/lXR32JepFwD1UHkplWqtBP1K79z.jpg",
+            "release_date": "2025-03-27",
+            "title": "Death of a Unicorn",
+            "video": false,
+            "vote_average": 6.082,
+            "vote_count": 97
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/3lEV4CoKoeT2cZ4fbKEJugZcw6Z.jpg",
+            "genre_ids": [
+                27,
+                9648
+            ],
+            "id": 1244944,
+            "original_language": "en",
+            "original_title": "The Woman in the Yard",
+            "overview": "In the aftermath of her husband's death, widow Ramona's struggle to raise her two kids is hindered by the arrival of a mysterious woman with supernatural abilities.",
+            "popularity": 106.6895,
+            "poster_path": "/n0WS2TsNcS6dtaZKzxipyO7LuCJ.jpg",
+            "release_date": "2025-03-27",
+            "title": "The Woman in the Yard",
+            "video": false,
+            "vote_average": 6.175,
+            "vote_count": 114
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/3xKJ0nyUTlySmMBCpOcsuSnFPI1.jpg",
+            "genre_ids": [
+                27,
+                9648
+            ],
+            "id": 1232546,
+            "original_language": "en",
+            "original_title": "Until Dawn",
+            "overview": "One year after her sister Melanie mysteriously disappeared, Clover and her friends head into the remote valley where she vanished in search of answers. Exploring an abandoned visitor center, they find themselves stalked by a masked killer and horrifically murdered one by one…only to wake up and find themselves back at the beginning of the same evening.",
+            "popularity": 84.4275,
+            "poster_path": "/6O9nkcmZBymDXtxOGJmulqcxJdv.jpg",
+            "release_date": "2025-04-23",
+            "title": "Until Dawn",
+            "video": false,
+            "vote_average": 6.382,
+            "vote_count": 89
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/2TtpJq1PbeQ36E5FnHVX4O6hVvu.jpg",
+            "genre_ids": [
+                28,
+                53
+            ],
+            "id": 1125899,
+            "original_language": "en",
+            "original_title": "Cleaner",
+            "overview": "When a group of radical activists take over an energy company's annual gala, seizing 300 hostages, an ex-soldier turned window cleaner suspended 50 storeys up on the outside of the building must save those trapped inside, including her younger brother.",
+            "popularity": 79.068,
+            "poster_path": "/mwzDApMZAGeYCEVjhegKvCzDX0W.jpg",
+            "release_date": "2025-02-19",
+            "title": "Cleaner",
+            "video": false,
+            "vote_average": 6.607,
+            "vote_count": 234
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/hwlyY7LJdEFbCPaGNXiskKKmJ5X.jpg",
+            "genre_ids": [
+                28,
+                53
+            ],
+            "id": 1126166,
+            "original_language": "en",
+            "original_title": "Flight Risk",
+            "overview": "A U.S. Marshal escorts a government witness to trial after he's accused of getting involved with a mob boss, only to discover that the pilot who is transporting them is also a hitman sent to assassinate the informant. After they subdue him, they're forced to fly together after discovering that there are others attempting to eliminate them.",
+            "popularity": 75.0502,
+            "poster_path": "/q0bCG4NX32iIEsRFZqRtuvzNCyZ.jpg",
+            "release_date": "2025-01-22",
+            "title": "Flight Risk",
+            "video": false,
+            "vote_average": 6.108,
+            "vote_count": 664
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/wmqpE7p2dUCEgCnovuovoNXaCXr.jpg",
+            "genre_ids": [
+                27,
+                14,
+                53,
+                9648,
+                28
+            ],
+            "id": 1353117,
+            "original_language": "en",
+            "original_title": "Home Sweet Home: Rebirth",
+            "overview": "When a city is overrun with a demonically-possessed crowd, a cop must find the source of evil to save his family.",
+            "popularity": 63.6462,
+            "poster_path": "/9rCBCm9cyI4JfLEhx3EncyncMR3.jpg",
+            "release_date": "2025-03-20",
+            "title": "Home Sweet Home: Rebirth",
+            "video": false,
+            "vote_average": 6.509,
+            "vote_count": 54
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/pD5Z6YglDNcRhcrCJKDhJlbGzni.jpg",
+            "genre_ids": [
+                36,
+                10402,
+                18
+            ],
+            "id": 279,
+            "original_language": "en",
+            "original_title": "Amadeus",
+            "overview": "Disciplined Italian composer Antonio Salieri becomes consumed by jealousy and resentment towards the hedonistic and remarkably talented young Viennese composer Wolfgang Amadeus Mozart.",
+            "popularity": 60.437,
+            "poster_path": "/1n5VUlCqgmVax1adxGZm8oCFaKc.jpg",
+            "release_date": "1984-09-19",
+            "title": "Amadeus",
+            "video": false,
+            "vote_average": 8.024,
+            "vote_count": 4390
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/jl2YIADk391yc6Qjy9JhgCRkHJk.jpg",
+            "genre_ids": [
+                16,
+                18,
+                35
+            ],
+            "id": 1064486,
+            "original_language": "en",
+            "original_title": "Memoir of a Snail",
+            "overview": "Forcibly separated from her twin brother when they are orphaned, a melancholic misfit learns how to find confidence within herself amid the clutter of misfortunes and everyday life.",
+            "popularity": 55.2767,
+            "poster_path": "/57AgZv1ITeBLShiNdchZ5153evs.jpg",
+            "release_date": "2024-10-17",
+            "title": "Memoir of a Snail",
+            "video": false,
+            "vote_average": 7.98,
+            "vote_count": 448
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/kXxriYfAWtMJNHGHVYr09c37L07.jpg",
+            "genre_ids": [
+                53,
+                878
+            ],
+            "id": 650033,
+            "original_language": "ru",
+            "original_title": "Свободное падение",
+            "overview": "In the near future, humanity has successfully colonized space and build a giant orbital station \"Delta\". Max is a repairman working on the station. After a disaster caused by a proton storm, he is left alone without his crew members, drifting into space. His space suit is broken, he is exhausted, and he lacks communication with people. But suddenly a dispatcher named Anna comes to help. She is the only one who can guide Max through difficulties and get him to the station. Max has to risk everything to save his life, but he has no idea what Anna is up to.",
+            "popularity": 53.0441,
+            "poster_path": "/tB66c6dnu9dG60mta8TF8zmeGJn.jpg",
+            "release_date": "2025-05-14",
+            "title": "Free Fall",
+            "video": false,
+            "vote_average": 0.0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/7ONMDhnErvpkKvkZqM82ud7bzcT.jpg",
+            "genre_ids": [
+                28,
+                12,
+                53
+            ],
+            "id": 575265,
+            "original_language": "en",
+            "original_title": "Mission: Impossible - The Final Reckoning",
+            "overview": "Ethan Hunt and the IMF team continue their search for the terrifying AI known as the Entity - which has infiltrated intelligence networks all over the globe - with the world's governments and a mysterious ghost from Ethan's past on their trail. Joined by new allies and armed with the means to shut the Entity down for good, Hunt is in a race against time to prevent the world as we know it from changing forever.",
+            "popularity": 51.6185,
+            "poster_path": "/z53D72EAOxGRqdr7KXXWp9dJiDe.jpg",
+            "release_date": "2025-05-17",
+            "title": "Mission: Impossible - The Final Reckoning",
+            "video": false,
+            "vote_average": 0.0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/6J259Zuq09Bt2PLUNeTS5a3DwLZ.jpg",
+            "genre_ids": [
+                28,
+                35,
+                53
+            ],
+            "id": 1212855,
+            "original_language": "en",
+            "original_title": "Fight or Flight",
+            "overview": "A mercenary takes on the job of tracking down a target on a plane but must protect her when they're surrounded by people trying to kill both of them.",
+            "popularity": 42.2844,
+            "poster_path": "/x4nWnfgJvL045rcUCSJzfgIIY9i.jpg",
+            "release_date": "2025-04-03",
+            "title": "Fight or Flight",
+            "video": false,
+            "vote_average": 5.7,
+            "vote_count": 60
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/rr5C9Zbg4v30YwaAoUnuEYFKBUq.jpg",
+            "genre_ids": [
+                27,
+                9648
+            ],
+            "id": 574475,
+            "original_language": "en",
+            "original_title": "Final Destination Bloodlines",
+            "overview": "Plagued by a violent recurring nightmare, college student Stefanie heads home to track down the one person who might be able to break the cycle and save her family from the grisly demise that inevitably awaits them all.",
+            "popularity": 39.0915,
+            "poster_path": "/cAoktVUBhGyULRoxV6mZ2LB3x7I.jpg",
+            "release_date": "2025-05-09",
+            "title": "Final Destination Bloodlines",
+            "video": false,
+            "vote_average": 0.0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/cJvUJEEQ86LSjl4gFLkYpdCJC96.jpg",
+            "genre_ids": [
+                10752,
+                28
+            ],
+            "id": 1241436,
+            "original_language": "en",
+            "original_title": "Warfare",
+            "overview": "A platoon of Navy SEALs embarks on a dangerous mission in Ramadi, Iraq, with the chaos and brotherhood of war retold through their memories of the event.",
+            "popularity": 39.0518,
+            "poster_path": "/oXsDTDt1MqxJreROd2cbd2FMOZ2.jpg",
+            "release_date": "2025-04-09",
+            "title": "Warfare",
+            "video": false,
+            "vote_average": 7.262,
+            "vote_count": 63
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/9OO6I25MHhCDd0XwNk4oZl0fpwB.jpg",
+            "genre_ids": [
+                28,
+                18
+            ],
+            "id": 1261050,
+            "original_language": "da",
+            "original_title": "De lydløse",
+            "overview": "In 2008, a group of men from Denmark and across Europe pull off the biggest heist of all time on Danish soil. Kasper, a boxer with few chances left in life, is offered the opportunity to plan the robbery by its foreign initiators.",
+            "popularity": 38.1892,
+            "poster_path": "/7NLY1jNwtZX1yVzwVoBeAhaBE8i.jpg",
+            "release_date": "2024-10-31",
+            "title": "The Quiet Ones",
+            "video": false,
+            "vote_average": 5.83,
+            "vote_count": 44
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/x4OYcZVHggyZHOrvkCo2HH9kLkF.jpg",
+            "genre_ids": [
+                18,
+                10749
+            ],
+            "id": 4348,
+            "original_language": "en",
+            "original_title": "Pride & Prejudice",
+            "overview": "A story of love and life among the landed English gentry during the Georgian era. Mr. Bennet is a gentleman living in Hertfordshire with his overbearing wife and five daughters, but if he dies their house will be inherited by a distant cousin whom they have never met, so the family's future happiness and security is dependent on the daughters making good marriages.",
+            "popularity": 33.6812,
+            "poster_path": "/sGjIvtVvTlWnia2zfJfHz81pZ9Q.jpg",
+            "release_date": "2005-09-16",
+            "title": "Pride & Prejudice",
+            "video": false,
+            "vote_average": 8.066,
+            "vote_count": 8218
+        }
+    ],
+    "total_pages": 49,
+    "total_results": 977
+}
