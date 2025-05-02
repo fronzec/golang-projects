@@ -233,4 +233,5 @@ Temporary Items
 # End of https://www.toptal.com/developers/gitignore/api/jetbrains+all,goland+all,go,visualstudiocode,macos
 
 # contains private data
-tmdbcli/http-client.private.env.json
+*http-client.private.env.json
+.idea/
