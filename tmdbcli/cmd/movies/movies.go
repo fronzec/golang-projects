@@ -28,28 +28,21 @@ var (
 		Long:  `Retrieve information about movies based on different categories like now playing, popular, top rated, and upcoming.`,
 		Run: func(cmd *cobra.Command, args []string) {
 			t := createTable()
+			tmdbClient := tmdb.NewClient(getApiKey(), tmdb.NewProdHTTPClient())
 			if movType == string(MovieTypeTop) {
-				apiKey := getApiKey()
-				client := tmdb.NewClient(apiKey)
-				resp, err := client.GetTopRatedMovies(1)
+				resp, err := tmdbClient.GetTopRatedMovies(1)
 				handleErrorOrExit(err, MovieTypeTop)
 				fillTable(t, MovieTypeTop, resp.Results)
 			}else if movType == string(MovieTypePlaying) {
-				apiKey := getApiKey()
-				client := tmdb.NewClient(apiKey)
-				resp, err := client.GetNowPlayingMovies(1)
+				resp, err := tmdbClient.GetNowPlayingMovies(1)
 				handleErrorOrExit(err, MovieTypePlaying)
 				fillTable(t, MovieTypePlaying, resp.Results)
 			 } else if movType == string(MovieTypePopular) {
-				apiKey := getApiKey()
-				client := tmdb.NewClient(apiKey)
-				resp, err := client.GetPopularMovies(1)
+				resp, err := tmdbClient.GetPopularMovies(1)
 				handleErrorOrExit(err, MovieTypePopular)
 				fillTable(t, MovieTypePopular, resp.Results)
 			 } else if movType == string(MovieTypeUpcoming) {
-				apiKey := getApiKey()
-				client := tmdb.NewClient(apiKey)
-				resp, err := client.GetUpcomingMovies(1)
+				resp, err := tmdbClient.GetUpcomingMovies(1)
 				handleErrorOrExit(err, MovieTypeUpcoming)
 				fillTable(t, MovieTypeUpcoming, resp.Results)
 			 } else {

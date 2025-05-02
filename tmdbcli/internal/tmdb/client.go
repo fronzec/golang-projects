@@ -5,21 +5,30 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"time"
 )
+
+// HTTPClient is an interface to allow mocking of http.Client in tests.
+type HTTPClient interface {
+	Do(req *http.Request) (*http.Response, error)
+}
 
 // Client is the client to interact with TheMovieDB API.
 type Client struct {
 	APIKey  string
 	BaseURL string
-	Client  *http.Client
+	Client  HTTPClient
 }
 
 // NewClient creates a new instance of the TMDB client.
-func NewClient(apiKey string) *Client {
+func NewClient(apiKey string, httpClient HTTPClient) *Client {
+	if httpClient == nil {
+		httpClient = http.DefaultClient
+	}
 	return &Client{
 		APIKey:  apiKey,
 		BaseURL: "https://api.themoviedb.org/3",
-		Client:  http.DefaultClient,
+		Client:  httpClient,
 	}
 }
 
@@ -132,8 +141,14 @@ func (c *Client) GetUpcomingMovies(page int) (*UpcomingResponse, error) {
 	return &result, nil
 }
 
-
 // GetAPIKeyFromEnv gets the API Key from the TMDB_API_KEY environment variable.
 func GetAPIKeyFromEnv() string {
 	return os.Getenv("TMDB_API_KEY")
+}
+
+
+func NewProdHTTPClient() *http.Client {
+	return &http.Client{
+		Timeout: 10 * time.Second,
+	}
 }
