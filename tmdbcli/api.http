@@ -1,0 +1,28 @@
+###
+GET https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1
+Accept: application/json
+Authorization: Bearer {{TMDB_API_KEY}}
+
+
+>> response-top-rated.json
+
+###
+GET https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1
+Accept: application/json
+Authorization: Bearer {{TMDB_API_KEY}}
+
+>> response-now-playing.json
+
+###
+GET https://api.themoviedb.org/3/movie/popular?language=en-US&page=1
+Accept: application/json
+Authorization: Bearer {{TMDB_API_KEY}}
+
+>> response-popular.json
+
+###
+GET https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1
+Accept: application/json
+Authorization: Bearer {{TMDB_API_KEY}}
+
+>> response-upcoming.json
