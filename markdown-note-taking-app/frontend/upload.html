@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload note</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Upload note</h1>
+    </header>
+    <main>
+        <form id="upload-note" action="http://localhost:8080/upload" method="post" enctype="multipart/form-data">
+            <label for="file">File:</label>
+            <input type="file" id="file" name="file" required accept=".md">
+            <button type="submit">Upload note</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2025 Notes</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -235,3 +235,4 @@ Temporary Items
 # contains private data
 *http-client.private.env.json
 .idea/
+tempfiles/
