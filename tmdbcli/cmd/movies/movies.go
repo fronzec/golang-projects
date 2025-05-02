@@ -4,98 +4,100 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/fronzec/golang-projects/tmdbcli/internal/tmdb"
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/spf13/cobra"
-	"github.com/fronzec/golang-projects/tmdbcli/internal/tmdb"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
+)
+
+type movieType string
+
+const (
+	MovieTypeTop    movieType = "top"
+	MovieTypePlaying movieType = "playing"
+	MovieTypePopular movieType = "popular"
+	MovieTypeUpcoming movieType = "upcoming"
 )
 
 var (
-	movieType string
+	movType string
 	MoviesCmd = &cobra.Command{
 		Use:   "movies",
 		Short: "Get information about movies from TMDB",
 		Long:  `Retrieve information about movies based on different categories like now playing, popular, top rated, and upcoming.`,
 		Run: func(cmd *cobra.Command, args []string) {
-			t := table.NewWriter()
-			t.SetOutputMirror(os.Stdout)
-			t.AppendHeader(table.Row{"Title", "Release Date", "Popularity"})
-
-			if movieType == "top" {
-				apiKey := tmdb.GetAPIKeyFromEnv()
-				if apiKey == "" {
-					fmt.Println("TMDB_API_KEY no está configurada en el entorno")
-					os.Exit(1)
-				}
+			t := createTable()
+			if movType == string(MovieTypeTop) {
+				apiKey := getApiKey()
 				client := tmdb.NewClient(apiKey)
 				resp, err := client.GetTopRatedMovies(1)
-				if err != nil {
-					fmt.Printf("Error obteniendo top rated movies: %v\n", err)
-					os.Exit(1)
-				}
-				for _, m := range resp.Results {
-					t.AppendRow(table.Row{m.Title, m.ReleaseDate, m.Popularity})
-				}
-				fmt.Println("Top Rated Movies:")
-			}else if movieType == "playing" {
-				apiKey := tmdb.GetAPIKeyFromEnv()
-				if apiKey == "" {
-					fmt.Println("TMDB_API_KEY no está configurada en el entorno")
-					os.Exit(1)
-				}
+				handleErrorOrExit(err, MovieTypeTop)
+				fillTable(t, MovieTypeTop, resp.Results)
+			}else if movType == string(MovieTypePlaying) {
+				apiKey := getApiKey()
 				client := tmdb.NewClient(apiKey)
 				resp, err := client.GetNowPlayingMovies(1)
-				if err != nil {
-					fmt.Printf("Error obteniendo now playing movies: %v\n", err)
-					os.Exit(1)
-				}
-				for _, m := range resp.Results {
-					t.AppendRow(table.Row{m.Title, m.ReleaseDate, m.Popularity})
-				}
-				fmt.Println("Now Playing Movies:")
-
-			 } else if movieType == "popular" {
-				apiKey := tmdb.GetAPIKeyFromEnv()
-				if apiKey == "" {
-					fmt.Println("TMDB_API_KEY no está configurada en el entorno")
-					os.Exit(1)
-				}
+				handleErrorOrExit(err, MovieTypePlaying)
+				fillTable(t, MovieTypePlaying, resp.Results)
+			 } else if movType == string(MovieTypePopular) {
+				apiKey := getApiKey()
 				client := tmdb.NewClient(apiKey)
 				resp, err := client.GetPopularMovies(1)
-				if err != nil {
-					fmt.Printf("Error obteniendo popular movies: %v\n", err)
-					os.Exit(1)
-				}
-				for _, m := range resp.Results {
-					t.AppendRow(table.Row{m.Title, m.ReleaseDate, m.Popularity})
-				}
-				fmt.Println("Popular Movies:")
-			 } else if movieType == "upcoming" {
-				apiKey := tmdb.GetAPIKeyFromEnv()
-				if apiKey == "" {
-					fmt.Println("TMDB_API_KEY no está configurada en el entorno")
-					os.Exit(1)
-				}
+				handleErrorOrExit(err, MovieTypePopular)
+				fillTable(t, MovieTypePopular, resp.Results)
+			 } else if movType == string(MovieTypeUpcoming) {
+				apiKey := getApiKey()
 				client := tmdb.NewClient(apiKey)
 				resp, err := client.GetUpcomingMovies(1)
-				if err != nil {
-					fmt.Printf("Error obteniendo upcoming movies: %v\n", err)
-					os.Exit(1)
-				}
-				for _, m := range resp.Results {
-					t.AppendRow(table.Row{m.Title, m.ReleaseDate, m.Popularity})
-				}
-				fmt.Println("Upcoming Movies:")
+				handleErrorOrExit(err, MovieTypeUpcoming)
+				fillTable(t, MovieTypeUpcoming, resp.Results)
 			 } else {
-				fmt.Printf("Tipo de película no soportado aún: %s\n", movieType)
+				fmt.Printf("Movie type not supported yet: %s\n", movType)
 				os.Exit(1)
 			}
-			t.SetStyle(table.StyleRounded)
-			t.Render()
+
+			printTable(t)
 		},
 	}
 )
 
+func handleErrorOrExit(err error, movType movieType) {
+	if err != nil {
+		fmt.Printf("Error fetching %s movies\n", movType)
+		os.Exit(1)
+	}
+}
+
+func fillTable(t table.Writer, movType movieType, resp []tmdb.Movie) {
+	for _, m := range resp {
+		t.AppendRow(table.Row{m.Title, m.ReleaseDate, m.Popularity})
+	}
+	fmt.Printf("%s Movies:\n", cases.Title(language.English).String(string(movType)))
+}
+
+func printTable(t table.Writer) {
+	t.Render()
+}
+
+func createTable() table.Writer {
+	t := table.NewWriter()
+	t.SetOutputMirror(os.Stdout)
+	t.AppendHeader(table.Row{"Title", "Release Date", "Popularity"})
+	t.SetStyle(table.StyleRounded)
+	return t
+}
+
+func getApiKey() string {
+	apiKey := tmdb.GetAPIKeyFromEnv()
+	if apiKey == "" {
+		fmt.Println("Auth error: TMDB_API_KEY is not configured in the environment")
+		os.Exit(1)
+	}
+	return apiKey
+}
+
 func init() {
-	MoviesCmd.Flags().StringVarP(&movieType, "type", "t", "", "Type of movies to fetch (playing, popular, top, upcoming)")
+	MoviesCmd.Flags().StringVarP(&movType, "type", "t", "", "Type of movies to fetch (playing, popular, top, upcoming)")
 	MoviesCmd.MarkFlagRequired("type")
 }
