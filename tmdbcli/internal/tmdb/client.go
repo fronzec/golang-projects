@@ -40,8 +40,7 @@ func (c *Client) GetTopRatedMovies(page int) (*TopRatedResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-	req.Header.Set("Accept", "application/json")
-	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", c.APIKey))
+	addHeaders(req, c.APIKey)
 
 	resp, err := c.Client.Do(req)
 	if err != nil {
@@ -67,9 +66,7 @@ func (c *Client) GetNowPlayingMovies(page int) (*NowPlayingResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-	req.Header.Set("Accept", "application/json")
-	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", c.APIKey))
-
+	addHeaders(req, c.APIKey)
 	resp, err := c.Client.Do(req)
 	if err != nil {
 		return nil, err
@@ -94,9 +91,7 @@ func (c *Client) GetPopularMovies(page int) (*PopularResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-	req.Header.Set("Accept", "application/json")
-	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", c.APIKey))
-
+	addHeaders(req, c.APIKey)
 	resp, err := c.Client.Do(req)
 	if err != nil {
 		return nil, err
@@ -121,8 +116,7 @@ func (c *Client) GetUpcomingMovies(page int) (*UpcomingResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-	req.Header.Set("Accept", "application/json")
-	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", c.APIKey))
+	addHeaders(req, c.APIKey)
 
 	resp, err := c.Client.Do(req)
 	if err != nil {
@@ -141,11 +135,15 @@ func (c *Client) GetUpcomingMovies(page int) (*UpcomingResponse, error) {
 	return &result, nil
 }
 
+func addHeaders(req *http.Request, apiKey string) {
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", apiKey))
+}
+
 // GetAPIKeyFromEnv gets the API Key from the TMDB_API_KEY environment variable.
 func GetAPIKeyFromEnv() string {
 	return os.Getenv("TMDB_API_KEY")
 }
-
 
 func NewProdHTTPClient() *http.Client {
 	return &http.Client{
