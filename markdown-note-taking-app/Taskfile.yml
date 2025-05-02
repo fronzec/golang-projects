@@ -1,0 +1,12 @@
+version: '3'
+silent: true
+tasks:
+  hello:
+    cmds:
+      - echo "Hello, World!"
+  frontend-serve-py:
+    cmds:
+      - cd frontend && python3 -m http.server 8000
+  start-all:
+    cmds:
+      - go run main.go

@@ -31,3 +31,10 @@ To avoid using a framework, we will use HTML, CSS and JS.
 - CSS
 - JS
 
+
+
+## How to run the app
+
+
+- Backend: `go run main.go`
+- Frontend: `task frontend-serve` or use Live Server extension in VSCode
