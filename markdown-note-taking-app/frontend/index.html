@@ -16,9 +16,26 @@
             <li><a href="upload.html">Upload note</a></li>
         </ul>
     </main>
+    <div id="notes-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="notes-table-body">
+            </tbody>
+        </table>
+    </div>
+
     <footer>
         <p>&copy; 2025 Notes</p>
     </footer>
     <script src="app.js"></script>
+    <script>
+        listNotes();// call listNotes function when page loads  
+    </script>
 </body>
 </html>

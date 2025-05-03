@@ -2,11 +2,14 @@ package main
 
 import (
 	"database/sql"
-	_ "github.com/mattn/go-sqlite3"
+	"encoding/json"
 	"fmt"
+	"io"
 	"log"
-	"net/http"
 	"markdown-note-taking-app/notes"
+	"net/http"
+
+	_ "github.com/mattn/go-sqlite3"
 )
 
 var noteRepo notes.NoteRepository
@@ -39,14 +42,13 @@ func listNotes(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	notesList, err := noteRepo.List()
+	w.Header().Set("Content-Type", "application/json")
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		fmt.Fprint(w, "Could not list notes")
 		return
 	}
-	for _, n := range notesList {
-		fmt.Fprintf(w, "ID: %d, Title: %s\n", n.ID, n.Title)
-	}
+	json.NewEncoder(w).Encode(notesList)
 }
 
 func readNote(w http.ResponseWriter, r *http.Request) {
@@ -68,7 +70,8 @@ func readNote(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "Note not found")
 		return
 	}
-	fmt.Fprintf(w, "ID: %d\nTitle: %s\nContent: %s\n", note.ID, note.Title, note.Content)
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(note)
 }
 
 func deleteNote(w http.ResponseWriter, r *http.Request) {
@@ -123,6 +126,41 @@ func updateNote(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Note updated")
 }
 
+func UploadHandler(w http.ResponseWriter, r *http.Request) {
+	//1. Param input for multipart file upload
+	r.ParseMultipartForm(200 << 20) // Maximum of 200MB file allowed
+
+   file, _, err := r.FormFile("file")
+   title := r.FormValue("title")
+   if err != nil {
+	   w.WriteHeader(http.StatusBadRequest)
+	   fmt.Fprint(w, "Error parsing form file")
+	   return
+   }
+
+	fileBytes, err := io.ReadAll(file)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprint(w, "Error reading file")
+		return
+	}
+
+	note := &notes.Note{Title: title, Content: string(fileBytes)}
+	id, err := noteRepo.Create(note)
+
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprint(w, "Error saving file")
+		return
+	}
+
+   defer file.Close()
+
+   w.WriteHeader(http.StatusOK)
+   fmt.Fprint(w, "File uploaded successfully and created note with ID: ", id)
+}
+
+
 func checkGrammarAndSpelling(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Check grammar and spelling")
 }
@@ -150,7 +188,7 @@ func startFrontendServer() {
 func startBackendServer() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/api/createNote", createNote)
-	mux.HandleFunc("/api/upload", notes.UploadHandler)
+	mux.HandleFunc("/api/upload", UploadHandler)
 	mux.HandleFunc("/api/checkGrammarAndSpelling", checkGrammarAndSpelling)
 	mux.HandleFunc("/api/listNotes", listNotes)
 	mux.HandleFunc("/api/readNote", readNote)

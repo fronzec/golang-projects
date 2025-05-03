@@ -11,9 +11,14 @@
         <h1>Upload note</h1>
     </header>
     <main>
-        <form id="upload-note" action="http://localhost:8080/upload" method="post" enctype="multipart/form-data">
-            <label for="file">File:</label>
+        <form id="upload-note" action="http://localhost:8080/api/upload" method="post"
+        enctype="multipart/form-data">
+            <label for="title">Title:</label> <br>
+            <input type="text" id="title" name="title" required>
+            <br>
+            <label for="file">File:</label> <br>
             <input type="file" id="file" name="file" required accept=".md">
+            <br>
             <button type="submit">Upload note</button>
         </form>
     </main>
