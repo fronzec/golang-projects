@@ -1,4 +1,4 @@
-FROM python:3.14-rc-slim-bookworm
+FROM python:3.15-rc-slim-bookworm
 
 RUN pip3 install locust
 
