@@ -1,4 +1,4 @@
-# This workflow will build a golang project
+# This workflow builds and tests every Go module in the monorepo.
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
 name: Go
@@ -12,28 +12,30 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        module:
+          - go-chi-restful-api
+          - markdown-note-taking-app
+          - memkv
+          - secmoney
+          - tmdbcli
+          - weather-service
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
-          go-version: "1.23"
+          go-version-file: "${{ matrix.module }}/go.mod"
+          cache-dependency-path: "${{ matrix.module }}/go.sum"
 
-      - name: Build go-chi-restful-api
-        run: cd ./go-chi-restful-api && go build -v ./...
+      - name: Build ${{ matrix.module }}
+        run: cd ./${{ matrix.module }} && go build -v ./...
 
-      - name: Test go-chi-restful-api
-        run: cd ./go-chi-restful-api && go test -v ./...
+      - name: Vet ${{ matrix.module }}
+        run: cd ./${{ matrix.module }} && go vet ./...
 
-      - name: Build memvk
-        run: cd memkv && go build -v ./...
-
-      - name: Test memvk
-        run: cd memkv && go test -v ./...
-
-      - name: Build weather-service
-        run: cd weather-service && go build -v ./...
-
-      - name: Test weather-service
-        run: cd weather-service && go test -v ./...
+      - name: Test ${{ matrix.module }}
+        run: cd ./${{ matrix.module }} && go test -v ./...
