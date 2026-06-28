@@ -94,14 +94,14 @@ func (s *server) ls(w http.ResponseWriter) {
 	encoder := json.NewEncoder(w)
 	w.Header().Set("Content-Type", "application/json")
 	if err := encoder.Encode(s.storage.Keys()); err != nil {
-		log.Printf(err.Error())
+		log.Println(err.Error())
 	}
 }
 
 func (s *server) get(w http.ResponseWriter, key string) {
 	value := s.storage.Get(key)
 	if _, err := io.WriteString(w, value); err != nil {
-		log.Printf(err.Error())
+		log.Println(err.Error())
 	}
 }
 
