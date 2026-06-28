@@ -53,10 +53,13 @@ func main() {
 
 func myGoBatchTesting() {
 	//set db for gobatch to store job&step execution context
-	db, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/gobatchservicedb?charset=utf8&parseTime=true")
+	db, err := sql.Open("mysql", db2.DSN())
 	if err != nil {
 		panic(err)
 	}
+	// Bound the metadata pool too — gobatch opens a transaction per partition.
+	db.SetMaxOpenConns(25)
+	db.SetMaxIdleConns(25)
 	gobatch.SetDB(db)
 
 	connection := db2.NewConnection()
@@ -78,7 +81,7 @@ func myGoBatchTesting() {
 func gobatchExamples() {
 	fmt.Println("hello batch")
 	//set db for gobatch to store job&step execution context
-	db, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/gobatchservicedb?charset=utf8&parseTime=true")
+	db, err := sql.Open("mysql", db2.DSN())
 	if err != nil {
 		panic(err)
 	}

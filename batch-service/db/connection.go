@@ -8,7 +8,11 @@ import (
 // NewConnection returns a new database connection.
 func NewConnection() *sqlx.DB {
 	fmt.Println("Connecting to database...")
-	db := sqlx.MustConnect("mysql", "root@tcp(localhost:3306)/gobatchservicedb")
+	db := sqlx.MustConnect("mysql", DSN())
+	// Bound the pool so concurrent gobatch partitions queue for a connection
+	// instead of exhausting MySQL's max_connections (Error 1040).
+	db.SetMaxOpenConns(25)
+	db.SetMaxIdleConns(25)
 	return db
 }
 

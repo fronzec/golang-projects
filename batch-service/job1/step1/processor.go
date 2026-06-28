@@ -10,7 +10,7 @@ type PersonV1Entity struct {
 	Person
 	Processed     bool      `db:"processed"`
 	CreatedAt     time.Time `db:"created_at"`
-	LastUpdatedAt time.Time `db:"last_updated_at"`
+	LastUpdatedAt time.Time `db:"updated_at"`
 }
 
 type Job1step1Processor struct {
