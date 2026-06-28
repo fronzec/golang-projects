@@ -236,3 +236,15 @@ Temporary Items
 *http-client.private.env.json
 .idea/
 tempfiles/
+
+# Local tooling — Gentle AI skill registry
+.atl/
+
+# Compiled module binaries (go build outputs named after the module dir,
+# extensionless on Linux/macOS so the templates above miss them)
+/go-chi-restful-api/go-chi-restful-api
+/markdown-note-taking-app/markdown-note-taking-app
+/memkv/memkv
+/secmoney/secmoney
+/tmdbcli/tmdbcli
+/weather-service/weather-service
